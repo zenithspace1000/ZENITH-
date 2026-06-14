@@ -1,0 +1,2619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Maxmin Foundation — learn computer basics, digital literacy, MS Office, and AI from an experienced technology mentor. Free scholarship seats for government school students in Khanakul, Hooghly.">
+<title>Maxmin Foundation | Computer Skills for School, Life and Future Careers</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@500&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --paper:   #F8F7F4;
+  --surface: #FFFFFF;
+  --navy:    #0E2A47;
+  --navy-mid:#1A3F68;
+  --amber:   #E8970A;
+  --amber-bg:#FEF6E3;
+  --amber-dk:#B8720A;
+  --slate:   #6B7A90;
+  --ink:     #1C2535;
+  --border:  #E3E0DA;
+  --border-s:#CBD5E0;
+  --green:   #1A8A5A;
+  --green-bg:#E6F4EE;
+
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --sh-sm: 0 2px 12px rgba(14,42,71,0.07);
+  --sh-md: 0 10px 32px rgba(14,42,71,0.11);
+
+  --max: 1100px;
+}
+
+/* ═══════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════ */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'DM Sans',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+a { color:inherit; text-decoration:none; }
+ul { list-style:none; }
+img { display:block; max-width:100%; }
+button { font-family:inherit; cursor:pointer; }
+:focus-visible { outline:3px solid var(--amber); outline-offset:3px; }
+
+/* ═══════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════ */
+.wrap { max-width:var(--max); margin:0 auto; padding:0 24px; }
+.serif { font-family:'Lora',serif; }
+.mono  { font-family:'DM Mono',monospace; }
+.bn    { font-family:'Noto Sans Bengali',sans-serif; }
+.hi    { font-family:'Noto Sans Devanagari',sans-serif; }
+
+/* ═══════════════════════════════════════════
+   LANGUAGE SWITCHER
+═══════════════════════════════════════════ */
+.lang-switcher {
+  display:flex; align-items:center; gap:2px;
+  background:rgba(14,42,71,0.06);
+  border:1px solid var(--border);
+  border-radius:100px;
+  padding:3px;
+}
+.lang-btn {
+  font-family:'DM Mono',monospace; font-size:12px; font-weight:500;
+  padding:5px 12px; border-radius:100px; border:none; cursor:pointer;
+  background:transparent; color:var(--slate);
+  transition:background .18s, color .18s;
+  letter-spacing:0.03em;
+}
+.lang-btn.active {
+  background:var(--navy); color:#fff;
+}
+.lang-btn:hover:not(.active) { background:rgba(14,42,71,0.10); color:var(--navy); }
+
+/* Hide/show language layers */
+[data-lang] { display:none; }
+[data-lang].lang-visible { display:block; }
+span[data-lang].lang-visible { display:inline; }
+.bn-sub[data-lang] { display:none; }
+.bn-sub[data-lang].lang-visible { display:block; }
+
+
+.eyebrow {
+  font-family:'DM Mono',monospace;
+  font-size:11.5px;
+  font-weight:500;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+  color:var(--amber-dk);
+  display:block;
+  margin-bottom:12px;
+}
+.eyebrow.light { color:rgba(255,255,255,0.55); }
+
+h2.section-h {
+  font-family:'Lora',serif;
+  font-size:clamp(26px,3.5vw,38px);
+  font-weight:600;
+  color:var(--navy);
+  line-height:1.20;
+}
+.bn-sub {
+  font-family:'Noto Sans Bengali',sans-serif;
+  font-size:13.5px;
+  color:var(--slate);
+  margin-top:4px;
+  display:block;
+}
+.section-p {
+  color:var(--slate);
+  font-size:16px;
+  max-width:580px;
+  margin-top:12px;
+}
+.center-text { text-align:center; }
+.center-text .section-p { margin-left:auto; margin-right:auto; }
+
+section { padding:84px 0; }
+.alt { background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════ */
+.btn {
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  font-family:'DM Sans',sans-serif; font-weight:700; font-size:15px;
+  border:none; border-radius:9px; cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+  white-space:nowrap;
+}
+.btn:focus-visible { outline-offset:3px; }
+.btn-amber {
+  background:var(--amber); color:#fff; padding:14px 28px;
+  box-shadow:0 6px 20px rgba(232,151,10,0.28);
+}
+.btn-amber:hover { background:var(--amber-dk); transform:translateY(-2px); box-shadow:0 10px 26px rgba(232,151,10,0.35); }
+.btn-ghost {
+  background:transparent; color:var(--navy); padding:13px 26px;
+  border:2px solid var(--navy);
+}
+.btn-ghost:hover { background:var(--navy); color:#fff; transform:translateY(-2px); }
+.btn-white {
+  background:#fff; color:var(--navy); padding:13px 26px;
+  box-shadow:var(--sh-sm);
+}
+.btn-white:hover { transform:translateY(-2px); box-shadow:var(--sh-md); }
+.btn-outline-white {
+  background:transparent; color:#fff; padding:13px 26px;
+  border:2px solid rgba(255,255,255,0.45);
+}
+.btn-outline-white:hover { background:rgba(255,255,255,0.12); transform:translateY(-2px); }
+.btn-sm { padding:10px 20px; font-size:13.5px; }
+.btn-full { width:100%; }
+
+/* icon inside btn */
+.btn svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ═══════════════════════════════════════════
+   PROGRESS BAR
+═══════════════════════════════════════════ */
+#progress {
+  position:fixed; top:0; left:0; height:3px; width:0%;
+  background:linear-gradient(90deg,var(--amber),var(--green));
+  z-index:2000; transition:width .08s linear;
+}
+
+/* ═══════════════════════════════════════════
+   SKIP LINK
+═══════════════════════════════════════════ */
+.skip { position:absolute; left:-999px; top:0; background:var(--navy); color:#fff; padding:10px 18px; z-index:3000; font-weight:700; border-radius:0 0 8px 0; }
+.skip:focus { left:0; }
+
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+header {
+  position:sticky; top:0; z-index:1000;
+  background:rgba(248,247,244,0.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow .2s;
+}
+header.scrolled { box-shadow:var(--sh-md); }
+
+.nav {
+  display:flex; align-items:center; justify-content:space-between;
+  height:72px; max-width:var(--max); margin:0 auto; padding:0 24px;
+}
+.brand { display:flex; align-items:center; gap:10px; }
+.brand-mark {
+  width:40px; height:40px; border-radius:10px;
+  background:var(--navy);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'DM Mono',monospace; font-weight:500; font-size:13px;
+  color:var(--amber); letter-spacing:-0.02em;
+}
+.brand-name { font-family:'Lora',serif; font-weight:600; font-size:16px; color:var(--navy); }
+.brand-sub { font-family:'Noto Sans Bengali',sans-serif; font-size:10.5px; color:var(--slate); margin-top:1px; }
+
+.nav-links { display:flex; align-items:center; gap:4px; }
+.nav-links a {
+  font-size:14px; font-weight:500; color:var(--slate);
+  padding:8px 13px; border-radius:7px;
+  transition:color .15s, background .15s;
+}
+.nav-links a:hover, .nav-links a.active { color:var(--navy); background:rgba(14,42,71,0.07); }
+.nav-links .nav-btn {
+  margin-left:8px; background:var(--amber); color:#fff;
+  font-weight:700; border-radius:8px; padding:9px 18px;
+  font-size:13.5px; border:none; cursor:pointer;
+  transition:background .15s, transform .15s;
+}
+.nav-links .nav-btn:hover { background:var(--amber-dk); transform:translateY(-1px); }
+
+.hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:8px; border-radius:7px; }
+.hamburger:hover { background:rgba(14,42,71,0.07); }
+.hamburger span { display:block; width:22px; height:2px; background:var(--navy); border-radius:2px; transition:.22s; }
+.hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity:0; }
+.hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+.mobile-nav {
+  display:none; flex-direction:column; gap:2px;
+  background:var(--surface); border-bottom:1px solid var(--border);
+  padding:10px 20px 18px; box-shadow:var(--sh-md);
+}
+.mobile-nav.open { display:flex; }
+.mobile-nav a { padding:11px 12px; border-radius:8px; font-size:15px; font-weight:600; color:var(--ink); }
+.mobile-nav a:hover { background:var(--paper); }
+.mobile-nav .mob-btn { margin-top:8px; background:var(--amber); color:#fff; text-align:center; border-radius:9px; padding:13px; font-weight:700; }
+
+@media(max-width:860px) {
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+}
+
+/* ═══════════════════════════════════════════
+   HERO  (signature: chalkboard-dark panel)
+═══════════════════════════════════════════ */
+#hero {
+  background:var(--navy);
+  padding:80px 0 96px;
+  position:relative;
+  overflow:hidden;
+}
+/* Subtle texture overlay — chalk effect */
+#hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(232,151,10,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 82% 78%, rgba(26,138,90,0.06) 0%, transparent 50%);
+  pointer-events:none;
+}
+/* Chalk rule lines */
+#hero::after {
+  content:'';
+  position:absolute; inset:0;
+  background-image:repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 47px,
+    rgba(255,255,255,0.028) 47px,
+    rgba(255,255,255,0.028) 48px
+  );
+  pointer-events:none;
+}
+
+.hero-inner {
+  position:relative; z-index:1;
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:64px;
+  align-items:center;
+  max-width:var(--max); margin:0 auto; padding:0 24px;
+}
+
+.hero-kicker {
+  display:inline-flex; align-items:center; gap:9px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:100px; padding:7px 16px;
+  font-family:'DM Mono',monospace; font-size:12px; font-weight:500;
+  color:rgba(255,255,255,0.75); margin-bottom:22px;
+}
+.hero-kicker .dot { width:7px; height:7px; border-radius:50%; background:var(--green); animation:blink 2.2s infinite; flex-shrink:0; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+.hero h1 {
+  font-family:'Lora',serif;
+  font-weight:700;
+  font-size:clamp(30px,4.2vw,52px);
+  line-height:1.14;
+  color:#fff;
+  margin-bottom:10px;
+}
+.hero h1 em { font-style:italic; color:var(--amber); }
+
+.hero-bn {
+  font-family:'Noto Sans Bengali',sans-serif;
+  font-size:16px; color:rgba(255,255,255,0.42);
+  margin-bottom:16px;
+}
+
+.hero-sub {
+  font-size:17px; color:rgba(255,255,255,0.75);
+  line-height:1.7; max-width:500px; margin-bottom:34px;
+}
+
+.hero-actions { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px; }
+
+.hero-proof {
+  display:flex; flex-wrap:wrap; gap:18px 28px;
+}
+.hp-item {
+  display:flex; align-items:center; gap:8px;
+  font-size:13.5px; font-weight:600; color:rgba(255,255,255,0.65);
+}
+.hp-dot { width:6px; height:6px; border-radius:50%; background:var(--amber); flex-shrink:0; }
+
+/* Hero right card */
+.hero-card {
+  background:rgba(255,255,255,0.07);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:var(--r-lg);
+  padding:28px;
+  backdrop-filter:blur(8px);
+}
+.hc-label {
+  font-family:'DM Mono',monospace; font-size:11px; font-weight:500;
+  letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--amber); margin-bottom:18px; display:block;
+}
+.hc-mentor-row {
+  display:flex; align-items:center; gap:14px; margin-bottom:22px;
+}
+.hc-avatar {
+  width:52px; height:52px; border-radius:50%;
+  background:linear-gradient(135deg,var(--amber),#F1C40F);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Lora',serif; font-weight:700; font-size:20px; color:#fff; flex-shrink:0;
+}
+.hc-name { font-family:'Lora',serif; font-weight:600; font-size:15.5px; color:#fff; }
+.hc-role { font-size:12.5px; color:rgba(255,255,255,0.5); margin-top:3px; }
+.hc-divider { height:1px; background:rgba(255,255,255,0.10); margin-bottom:18px; }
+.hc-row {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.08);
+  font-size:13px;
+}
+.hc-row:last-child { border-bottom:none; }
+.hc-row span:first-child { color:rgba(255,255,255,0.55); }
+.hc-row span:last-child { font-weight:600; color:#fff; }
+
+@media(max-width:900px) {
+  .hero-inner { grid-template-columns:1fr; }
+  .hero-card { display:none; }
+}
+
+/* ═══════════════════════════════════════════
+   TRUST BAR
+═══════════════════════════════════════════ */
+#trust {
+  background:var(--surface); padding:0;
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+}
+.trust-inner {
+  max-width:var(--max); margin:0 auto; padding:0 24px;
+  display:flex; justify-content:space-between; flex-wrap:wrap;
+  gap:0;
+}
+.trust-item {
+  display:flex; align-items:center; gap:10px;
+  padding:20px 16px;
+  border-right:1px solid var(--border);
+  flex:1; min-width:160px;
+}
+.trust-item:last-child { border-right:none; }
+.trust-icon {
+  width:36px; height:36px; border-radius:9px;
+  background:var(--amber-bg); color:var(--amber-dk);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.trust-icon svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.trust-label { font-size:13px; font-weight:600; color:var(--navy); }
+.trust-sub { font-size:11.5px; color:var(--slate); margin-top:1px; }
+
+@media(max-width:760px) {
+  .trust-inner { flex-direction:column; }
+  .trust-item { border-right:none; border-bottom:1px solid var(--border); }
+  .trust-item:last-child { border-bottom:none; }
+}
+
+/* ═══════════════════════════════════════════
+   MEET THE MENTOR
+═══════════════════════════════════════════ */
+.mentor-grid {
+  display:grid;
+  grid-template-columns:340px 1fr;
+  gap:56px;
+  align-items:start;
+}
+.mentor-photo-col { position:sticky; top:90px; }
+.mentor-photo-frame {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:var(--sh-md);
+}
+.mentor-photo-placeholder {
+  aspect-ratio:4/5;
+  background:linear-gradient(160deg,var(--navy-mid) 0%,var(--navy) 100%);
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:12px;
+}
+.mentor-photo-placeholder .initial {
+  font-family:'Lora',serif; font-weight:700;
+  font-size:68px; color:rgba(255,255,255,0.20);
+}
+.mentor-photo-placeholder .ph-note {
+  font-family:'DM Mono',monospace;
+  font-size:11px; color:rgba(255,255,255,0.30);
+  text-transform:uppercase; letter-spacing:0.08em;
+}
+.mentor-photo-meta {
+  padding:18px;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1px; background:var(--border);
+}
+.meta-cell {
+  background:var(--surface);
+  padding:14px 16px; text-align:center;
+}
+.meta-num {
+  font-family:'Lora',serif; font-weight:700;
+  font-size:22px; color:var(--navy);
+}
+.meta-lbl { font-size:11.5px; color:var(--slate); margin-top:2px; }
+
+.mentor-bio .eyebrow { margin-bottom:8px; }
+.mentor-bio h2 { margin-bottom:8px; }
+.mentor-bio p { color:var(--slate); margin-bottom:16px; font-size:15.5px; }
+.mentor-bio .philosophy {
+  font-family:'Lora',serif; font-style:italic;
+  font-size:17px; color:var(--navy);
+  border-left:3px solid var(--amber);
+  padding:14px 20px;
+  background:var(--amber-bg);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  margin:24px 0;
+  line-height:1.6;
+}
+.mentor-tags { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
+.mtag {
+  font-family:'DM Mono',monospace; font-size:12px; font-weight:500;
+  padding:6px 13px; border-radius:100px;
+  background:var(--paper); border:1px solid var(--border);
+  color:var(--navy);
+}
+.mtag.amber { background:var(--amber-bg); border-color:rgba(232,151,10,0.3); color:var(--amber-dk); }
+
+.cert-list { display:grid; gap:10px; margin-bottom:28px; }
+.cert-item {
+  display:flex; gap:12px; align-items:flex-start;
+  padding:14px 16px;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r-sm);
+  font-size:14px;
+}
+.cert-item .cert-icon {
+  width:32px; height:32px; border-radius:8px;
+  background:var(--amber-bg); color:var(--amber-dk);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.cert-icon svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.cert-name { font-weight:600; color:var(--navy); }
+.cert-org { font-size:12.5px; color:var(--slate); margin-top:2px; }
+
+@media(max-width:900px) {
+  .mentor-grid { grid-template-columns:1fr; }
+  .mentor-photo-col { position:static; }
+}
+
+/* ═══════════════════════════════════════════
+   IMPACT STATS
+═══════════════════════════════════════════ */
+.impact-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.impact-card {
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r-md);
+  padding:28px 24px;
+  text-align:center;
+}
+.impact-card .i-num {
+  font-family:'Lora',serif; font-weight:700;
+  font-size:38px; color:var(--navy);
+  margin-bottom:6px;
+}
+.impact-card .i-lbl { font-size:14px; font-weight:600; color:var(--navy); }
+.impact-card .i-sub { font-size:12.5px; color:var(--slate); margin-top:4px; }
+.impact-card .i-icon {
+  width:44px; height:44px; border-radius:12px;
+  background:var(--amber-bg); color:var(--amber-dk);
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 14px;
+}
+.impact-card .i-icon svg { width:22px; height:22px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+
+@media(max-width:760px) { .impact-grid { grid-template-columns:repeat(2,1fr); } }
+
+/* ═══════════════════════════════════════════
+   WHAT STUDENTS LEARN
+═══════════════════════════════════════════ */
+.learn-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.learn-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r-md); padding:26px;
+  transition:box-shadow .22s, transform .22s;
+  position:relative; overflow:hidden;
+}
+.learn-card:hover { box-shadow:var(--sh-md); transform:translateY(-4px); }
+.learn-card::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--amber); opacity:0;
+  transition:opacity .22s;
+}
+.learn-card:hover::before { opacity:1; }
+.lc-icon {
+  width:46px; height:46px; border-radius:12px;
+  background:var(--amber-bg); color:var(--amber-dk);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:16px;
+}
+.lc-icon svg { width:22px; height:22px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.lc-num {
+  font-family:'DM Mono',monospace; font-size:11px; font-weight:500;
+  color:var(--slate); letter-spacing:0.06em; margin-bottom:6px; display:block;
+}
+.learn-card h3 { font-family:'Lora',serif; font-size:17px; color:var(--navy); margin-bottom:8px; }
+.learn-card p { color:var(--slate); font-size:14px; }
+
+@media(max-width:760px) { .learn-grid { grid-template-columns:repeat(2,1fr); } }
+@media(max-width:540px) { .learn-grid { grid-template-columns:1fr; } }
+
+/* ═══════════════════════════════════════════
+   LEARNING ROADMAP
+═══════════════════════════════════════════ */
+.roadmap-track {
+  position:relative;
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:0;
+  align-items:start;
+}
+.roadmap-track::before {
+  content:'';
+  position:absolute;
+  top:22px; left:calc(100%/14); right:calc(100%/14);
+  height:2px;
+  background:linear-gradient(90deg,var(--border),var(--amber),var(--border));
+}
+.rm-step {
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center; padding:0 8px; position:relative; z-index:1;
+}
+.rm-dot {
+  width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'DM Mono',monospace; font-weight:500; font-size:13px;
+  margin-bottom:14px; flex-shrink:0;
+  border:4px solid var(--paper);
+}
+.rm-dot.first { background:var(--navy); color:#fff; }
+.rm-dot.mid   { background:var(--amber); color:#fff; }
+.rm-dot.last  { background:var(--green); color:#fff; }
+.rm-step h4 { font-family:'Lora',serif; font-size:13.5px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+.rm-step p  { font-size:11.5px; color:var(--slate); line-height:1.5; }
+.rm-arrow {
+  position:absolute; top:13px; right:-18px; z-index:2;
+  color:var(--amber); font-size:20px; line-height:1;
+}
+
+@media(max-width:860px) {
+  .roadmap-track { grid-template-columns:1fr; }
+  .roadmap-track::before {
+    top:0; bottom:0; left:22px; right:auto;
+    width:2px; height:auto;
+    background:linear-gradient(180deg,var(--border),var(--amber),var(--border));
+  }
+  .rm-step { flex-direction:row; text-align:left; gap:16px; align-items:flex-start; padding:12px 0; }
+  .rm-dot { margin-bottom:0; flex-shrink:0; }
+  .rm-arrow { display:none; }
+}
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════════ */
+.testi-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+}
+.testi-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r-md); padding:28px;
+  display:flex; flex-direction:column; gap:18px;
+}
+.testi-stars { display:flex; gap:4px; }
+.testi-stars span { color:var(--amber); font-size:15px; }
+.testi-text {
+  font-family:'Lora',serif; font-style:italic;
+  font-size:15.5px; color:var(--ink);
+  line-height:1.75; flex-grow:1;
+}
+.testi-author { display:flex; align-items:center; gap:12px; }
+.testi-avatar {
+  width:44px; height:44px; border-radius:50%;
+  background:linear-gradient(135deg,var(--navy-mid),var(--amber));
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Lora',serif; font-weight:700; font-size:16px; color:#fff;
+  flex-shrink:0;
+}
+.testi-name { font-weight:700; font-size:14px; color:var(--navy); }
+.testi-role { font-size:12.5px; color:var(--slate); margin-top:2px; }
+.testi-disclaimer {
+  text-align:center; margin-top:18px;
+  font-family:'DM Mono',monospace; font-size:11px;
+  color:var(--slate); letter-spacing:0.06em;
+}
+
+@media(max-width:760px) { .testi-grid { grid-template-columns:1fr; } }
+
+/* ═══════════════════════════════════════════
+   GALLERY
+═══════════════════════════════════════════ */
+.gallery-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:200px 200px;
+  gap:16px;
+}
+.gallery-item {
+  border-radius:var(--r-md); overflow:hidden;
+  background:var(--navy);
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+}
+.gallery-item:first-child { grid-row:span 2; }
+.gallery-ph {
+  text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+}
+.gallery-ph svg { width:28px; height:28px; stroke:rgba(255,255,255,0.25); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.gallery-ph span { font-family:'DM Mono',monospace; font-size:10.5px; color:rgba(255,255,255,0.28); text-transform:uppercase; letter-spacing:0.07em; }
+.gallery-item:nth-child(2) { background:var(--navy-mid); }
+.gallery-item:nth-child(3) { background:#142038; }
+.gallery-item:nth-child(4) { background:#0c1f36; }
+.gallery-item:nth-child(5) { background:var(--navy-mid); }
+.gallery-caption {
+  position:absolute; bottom:0; left:0; right:0;
+  background:linear-gradient(transparent,rgba(0,0,0,0.55));
+  padding:20px 14px 14px;
+  font-size:12px; color:rgba(255,255,255,0.8); font-weight:600;
+}
+
+@media(max-width:760px) {
+  .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+  .gallery-item:first-child { grid-row:auto; }
+}
+
+/* ═══════════════════════════════════════════
+   MISSION
+═══════════════════════════════════════════ */
+.mission-inner {
+  background:linear-gradient(140deg,var(--navy) 0%,var(--navy-mid) 100%);
+  border-radius:var(--r-lg); padding:60px;
+  display:grid; grid-template-columns:1.1fr 1fr; gap:48px; align-items:center;
+}
+.mission-inner h2 { color:#fff; }
+.mission-inner .section-p { color:rgba(255,255,255,0.72); max-width:none; }
+.mission-pts { display:grid; gap:16px; margin-top:28px; }
+.mpt {
+  display:flex; gap:14px; align-items:flex-start;
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.10);
+  border-radius:var(--r-sm); padding:16px;
+}
+.mpt-icon {
+  width:38px; height:38px; border-radius:9px;
+  background:rgba(232,151,10,0.18); color:var(--amber);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.mpt-icon svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.mpt-text h4 { font-family:'Lora',serif; font-size:15px; color:#fff; margin-bottom:3px; }
+.mpt-text p  { font-size:13.5px; color:rgba(255,255,255,0.65); }
+.mission-quote {
+  font-family:'Lora',serif; font-style:italic; font-size:20px;
+  color:rgba(255,255,255,0.90); line-height:1.65;
+}
+.mission-quote cite {
+  display:block; margin-top:14px;
+  font-style:normal; font-family:'DM Mono',monospace; font-size:12px;
+  color:var(--amber); letter-spacing:0.06em; text-transform:uppercase;
+}
+
+@media(max-width:860px) {
+  .mission-inner { grid-template-columns:1fr; padding:36px; }
+}
+
+/* ═══════════════════════════════════════════
+   PARTNER SCHOOLS
+═══════════════════════════════════════════ */
+.partner-grid {
+  display:grid; grid-template-columns:repeat(5,1fr); gap:16px;
+}
+.partner-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r-md); padding:24px 16px;
+  text-align:center; display:flex; flex-direction:column;
+  align-items:center; gap:10px;
+}
+.partner-logo-ph {
+  width:56px; height:56px; border-radius:12px;
+  background:var(--paper); border:1px dashed var(--border-s);
+  display:flex; align-items:center; justify-content:center;
+}
+.partner-logo-ph svg { width:26px; height:26px; stroke:var(--slate); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.partner-name { font-size:12.5px; font-weight:600; color:var(--navy); }
+.partner-loc  { font-size:11px; color:var(--slate); }
+.partner-more {
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  background:var(--paper); border:2px dashed var(--border-s);
+  border-radius:var(--r-md); padding:24px 16px;
+  font-size:13px; font-weight:600; color:var(--slate); cursor:pointer;
+}
+
+@media(max-width:860px) { .partner-grid { grid-template-columns:repeat(3,1fr); } }
+@media(max-width:560px) { .partner-grid { grid-template-columns:repeat(2,1fr); } }
+
+/* ═══════════════════════════════════════════
+   ASK YOUR MENTOR
+═══════════════════════════════════════════ */
+.ask-inner {
+  display:grid; grid-template-columns:1fr 1.2fr; gap:56px; align-items:start;
+}
+.ask-questions { display:grid; gap:10px; }
+.ask-q {
+  display:flex; align-items:center; gap:12px;
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r-sm); padding:14px 18px;
+  font-size:14.5px; font-weight:600; color:var(--navy);
+  cursor:pointer; transition:background .15s, border-color .15s, transform .15s;
+  text-align:left; width:100%;
+}
+.ask-q:hover { background:var(--amber-bg); border-color:var(--amber); transform:translateX(4px); }
+.ask-q .aq-icon {
+  width:34px; height:34px; border-radius:8px;
+  background:var(--amber-bg); color:var(--amber-dk);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  font-family:'DM Mono',monospace; font-size:14px; font-weight:700;
+}
+.ask-q .aq-arrow {
+  margin-left:auto; color:var(--slate);
+  font-size:16px; line-height:1;
+}
+
+.ask-answer-box {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r-lg); padding:32px;
+  min-height:300px;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.aab-placeholder {
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; gap:14px; height:220px; text-align:center;
+}
+.aab-placeholder svg { width:40px; height:40px; stroke:var(--border-s); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.aab-placeholder p { font-size:14px; color:var(--slate); max-width:260px; }
+
+.aab-content { display:none; }
+.aab-content.active { display:block; }
+.aab-q {
+  font-family:'Lora',serif; font-weight:600; font-size:17px;
+  color:var(--navy); margin-bottom:14px;
+}
+.aab-a { font-size:15px; color:var(--slate); line-height:1.75; margin-bottom:20px; }
+.aab-footer {
+  display:flex; align-items:center; gap:12px;
+  padding-top:18px; border-top:1px solid var(--border);
+}
+.aab-avatar {
+  width:38px; height:38px; border-radius:50%;
+  background:linear-gradient(135deg,var(--navy-mid),var(--amber));
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Lora',serif; font-weight:700; color:#fff; font-size:14px;
+  flex-shrink:0;
+}
+.aab-footer-name { font-size:13.5px; font-weight:700; color:var(--navy); }
+.aab-footer-role { font-size:12px; color:var(--slate); }
+
+@media(max-width:860px) { .ask-inner { grid-template-columns:1fr; } }
+
+/* ═══════════════════════════════════════════
+   MIN TO MAX JOURNEY
+═══════════════════════════════════════════ */
+.mtm-wrap {
+  position:relative;
+  margin-top:12px;
+}
+
+/* The connecting line */
+.mtm-line {
+  position:absolute;
+  top:34px; left:60px; right:60px;
+  height:3px;
+  background:linear-gradient(90deg, var(--navy) 0%, var(--amber) 50%, var(--green) 100%);
+  border-radius:3px;
+  z-index:0;
+}
+
+.mtm-track {
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:0;
+  position:relative;
+  z-index:1;
+}
+
+.mtm-step {
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center; padding:0 4px;
+}
+
+.mtm-dot-wrap {
+  position:relative;
+  margin-bottom:14px;
+}
+
+.mtm-dot {
+  width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'DM Mono',monospace; font-weight:500; font-size:13px;
+  border:3px solid var(--paper);
+  position:relative; z-index:1;
+  transition:transform .2s;
+}
+.mtm-step:hover .mtm-dot { transform:scale(1.12); }
+
+.mtm-dot.dot-min  { background:var(--navy); color:#fff; width:52px; height:52px; font-size:15px; border-width:4px; }
+.mtm-dot.dot-mid  { background:var(--amber); color:#fff; }
+.mtm-dot.dot-adv  { background:var(--green); color:#fff; }
+.mtm-dot.dot-max  { background:var(--navy); color:var(--amber); width:52px; height:52px; font-size:15px; border-width:4px; font-weight:700; }
+
+/* Founder name labels on endpoints */
+.mtm-founder-tag {
+  font-family:'DM Mono',monospace; font-size:10px; font-weight:500;
+  letter-spacing:0.08em; text-transform:uppercase;
+  padding:3px 10px; border-radius:100px;
+  margin-bottom:6px; display:inline-block;
+}
+.tag-min { background:rgba(14,42,71,0.10); color:var(--navy); }
+.tag-max { background:rgba(232,151,10,0.15); color:var(--amber-dk); }
+
+.mtm-step h4 {
+  font-family:'Lora',serif; font-size:13px; font-weight:600;
+  color:var(--navy); margin-bottom:4px; line-height:1.3;
+}
+.mtm-step p  { font-size:11.5px; color:var(--slate); line-height:1.5; }
+
+/* Endpoint steps get a subtle highlight */
+.mtm-step.endpoint h4 { font-size:14px; }
+
+/* Mobile: vertical stack */
+@media(max-width:860px) {
+  .mtm-line {
+    top:52px; bottom:52px; left:26px; right:auto;
+    width:3px; height:auto;
+    background:linear-gradient(180deg, var(--navy) 0%, var(--amber) 50%, var(--green) 100%);
+  }
+  .mtm-track { grid-template-columns:1fr; gap:0; }
+  .mtm-step {
+    flex-direction:row; text-align:left; gap:16px;
+    align-items:flex-start; padding:10px 0;
+  }
+  .mtm-dot-wrap { margin-bottom:0; flex-shrink:0; }
+  .mtm-dot { width:44px; height:44px; font-size:13px; }
+  .mtm-dot.dot-min, .mtm-dot.dot-max { width:48px; height:48px; font-size:14px; }
+  .mtm-step h4, .mtm-step p { text-align:left; }
+  .mtm-founder-tag { display:none; }
+}
+
+/* Journey flavour strip below roadmap */
+.mtm-brand-strip {
+  margin-top:44px;
+  background:var(--navy);
+  border-radius:var(--r-lg);
+  padding:28px 36px;
+  display:flex; align-items:center; gap:24px;
+  flex-wrap:wrap;
+}
+.mtm-brand-strip .mbs-text {
+  flex:1; min-width:240px;
+}
+.mtm-brand-strip .mbs-text h3 {
+  font-family:'Lora',serif; font-weight:700; font-size:20px;
+  color:#fff; margin-bottom:6px;
+}
+.mtm-brand-strip .mbs-text p {
+  font-size:14px; color:rgba(255,255,255,0.68); line-height:1.65;
+}
+.mtm-arrow-visual {
+  display:flex; align-items:center; gap:10px; flex-shrink:0;
+}
+.mav-pill {
+  font-family:'DM Mono',monospace; font-size:13px; font-weight:500;
+  padding:8px 18px; border-radius:100px;
+  letter-spacing:0.04em;
+}
+.mav-min { background:rgba(255,255,255,0.10); color:#fff; border:1px solid rgba(255,255,255,0.18); }
+.mav-max { background:var(--amber); color:#fff; }
+.mav-arrow { color:rgba(255,255,255,0.40); font-size:22px; }
+
+.faq-list { max-width:720px; margin:0 auto; display:grid; gap:10px; }
+.faq-item {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r-md); overflow:hidden;
+}
+.faq-q {
+  width:100%; display:flex; align-items:center; justify-content:space-between;
+  gap:14px; padding:18px 22px; background:none; border:none;
+  text-align:left; font-family:'Lora',serif; font-size:15.5px; font-weight:600;
+  color:var(--navy); cursor:pointer;
+}
+.faq-icon { flex-shrink:0; color:var(--amber); transition:transform .22s; }
+.faq-icon svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .3s ease; }
+.faq-a-inner { padding:0 22px 20px; color:var(--slate); font-size:15px; line-height:1.7; }
+.faq-item.open .faq-a { max-height:300px; }
+.faq-item.open .faq-q { color:var(--amber-dk); }
+
+/* ═══════════════════════════════════════════
+   FINAL CTA
+═══════════════════════════════════════════ */
+#cta {
+  background:var(--navy);
+  padding:80px 0;
+  position:relative; overflow:hidden;
+}
+#cta::before {
+  content:'';
+  position:absolute; inset:0;
+  background:repeating-linear-gradient(
+    0deg, transparent, transparent 47px,
+    rgba(255,255,255,0.022) 47px, rgba(255,255,255,0.022) 48px
+  );
+  pointer-events:none;
+}
+.cta-inner {
+  position:relative; z-index:1;
+  text-align:center; max-width:660px; margin:0 auto; padding:0 24px;
+}
+.cta-inner h2 {
+  font-family:'Lora',serif; font-weight:700;
+  font-size:clamp(28px,4vw,44px); color:#fff;
+  margin-bottom:12px;
+}
+.cta-inner .bn-sub { color:rgba(255,255,255,0.35); margin-bottom:0; }
+.cta-inner p {
+  color:rgba(255,255,255,0.72); font-size:16px;
+  margin:16px 0 34px;
+}
+.cta-buttons { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+footer {
+  background:#07192C;
+  color:rgba(255,255,255,0.60);
+  padding:52px 0 24px;
+}
+.footer-grid {
+  max-width:var(--max); margin:0 auto; padding:0 24px;
+  display:grid; grid-template-columns:2fr 1fr 1fr 1.4fr; gap:36px;
+  margin-bottom:36px;
+}
+.footer-brand { display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+.footer-brand .brand-name { color:#fff; font-size:15.5px; }
+.footer-brand .brand-sub { color:rgba(255,255,255,0.35); }
+.footer-grid > div > p { font-size:13.5px; line-height:1.7; max-width:290px; }
+.fh { font-family:'Lora',serif; font-weight:600; font-size:13.5px; color:#fff; margin-bottom:14px; }
+.footer-grid ul { display:grid; gap:9px; }
+.footer-grid a { font-size:13px; transition:color .15s; }
+.footer-grid a:hover { color:var(--amber); }
+.f-contact-item { display:flex; gap:10px; margin-bottom:10px; font-size:13px; }
+.f-contact-item svg { width:16px; height:16px; stroke:var(--amber); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; margin-top:2px; flex-shrink:0; }
+.footer-bottom {
+  max-width:var(--max); margin:0 auto; padding:20px 24px 0;
+  border-top:1px solid rgba(255,255,255,0.08);
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:12px; font-size:12px;
+}
+.btt {
+  width:36px; height:36px; border-radius:50%;
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);
+  color:rgba(255,255,255,0.6);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:background .15s; border:none;
+}
+.btt:hover { background:var(--amber); }
+.btt svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+@media(max-width:860px) { .footer-grid { grid-template-columns:1fr 1fr; } }
+@media(max-width:540px) { .footer-grid { grid-template-columns:1fr; } }
+
+/* ═══════════════════════════════════════════
+   LOGO SVG
+═══════════════════════════════════════════ */
+.logo-svg { width:48px; height:38px; flex-shrink:0; }
+.logo-text-wrap { display:flex; flex-direction:column; line-height:1.15; }
+.logo-maxmin { font-family:'Lora',serif; font-weight:700; font-size:17px; color:var(--navy); letter-spacing:-0.01em; }
+.logo-maxmin span { color:#E8970A; }
+.logo-foundation { font-family:'DM Sans',sans-serif; font-size:10px; font-weight:600; color:#1A8A6D; letter-spacing:0.08em; text-transform:uppercase; }
+
+/* ═══════════════════════════════════════════
+   WATERMARK LOGOS
+═══════════════════════════════════════════ */
+.wm-section { position:relative; overflow:hidden; }
+.wm-logo { position:absolute; opacity:0.038; pointer-events:none; z-index:0; }
+.wm-tr { top:-10px; right:-20px; width:200px; height:160px; }
+.wm-bl { bottom:-10px; left:-20px; width:190px; height:150px; }
+.wm-center { top:50%; left:50%; transform:translate(-50%,-50%); width:240px; height:190px; opacity:0.022; }
+.wm-section > .wrap { position:relative; z-index:1; }
+
+/* ═══════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════ */
+.reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease; }
+.reveal.up { opacity:1; transform:none; }
+.d1 { transition-delay:.08s; }
+.d2 { transition-delay:.16s; }
+.d3 { transition-delay:.24s; }
+.d4 { transition-delay:.32s; }
+
+/* TOAST */
+#toast {
+  position:fixed; bottom:24px; left:50%;
+  transform:translateX(-50%) translateY(16px);
+  background:var(--green); color:#fff;
+  padding:12px 24px; border-radius:100px;
+  font-size:14px; font-weight:600;
+  box-shadow:0 12px 32px rgba(0,0,0,0.22);
+  opacity:0; pointer-events:none;
+  transition:opacity .28s, transform .28s;
+  z-index:2000; white-space:nowrap;
+}
+#toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after { transition:none !important; animation:none !important; }
+  .reveal { opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to main content</a>
+<div id="progress"></div>
+
+<!-- ═══ NAV ═══════════════════════════════════ -->
+<header id="hdr">
+  <div class="nav">
+    <a href="#hero" class="brand" aria-label="MaxMin Foundation home">
+      <svg class="logo-svg" viewBox="0 0 110 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="15" r="8" fill="#0E2A47"/>
+        <circle cx="90" cy="11" r="8" fill="#E8970A"/>
+        <path d="M20 40 L38 20 L55 36 L72 14 L90 32" stroke="#1A8A6D" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <polyline points="82,22 90,32 98,22" stroke="#1A8A6D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M14 44 L20 36 L26 44" fill="#0E2A47" opacity="0.6"/>
+        <path d="M84 38 L90 30 L96 38" fill="#E8970A" opacity="0.6"/>
+        <rect x="12" y="56" width="86" height="5" rx="2.5" fill="#1A8A6D" opacity="0.18"/>
+      </svg>
+      <div class="logo-text-wrap">
+        <div class="logo-maxmin">Max<span>Min</span></div>
+        <div class="logo-foundation">Foundation</div>
+      </div>
+    </a>
+    <nav aria-label="Primary navigation">
+      <ul class="nav-links">
+        <li><a href="#mentor">Mentor</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#roadmap">Journey</a></li>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li>
+          <div class="lang-switcher" role="group" aria-label="Choose language">
+            <button class="lang-btn active" data-lang-select="en" aria-pressed="true">EN</button>
+            <button class="lang-btn" data-lang-select="hi" aria-pressed="false">हि</button>
+            <button class="lang-btn" data-lang-select="bn" aria-pressed="false">বাং</button>
+          </div>
+        </li>
+        <li><a href="#enroll" class="nav-btn">Enroll Free</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" id="ham" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" id="mob">
+    <a href="#mentor">Mentor</a>
+    <a href="#courses">Courses</a>
+    <a href="#roadmap">Journey</a>
+    <a href="#mission">Mission</a>
+    <a href="#faq">FAQ</a>
+    <div class="lang-switcher" style="margin:6px 0 2px;" role="group" aria-label="Choose language">
+      <button class="lang-btn active" data-lang-select="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang-select="hi" aria-pressed="false">हि</button>
+      <button class="lang-btn" data-lang-select="bn" aria-pressed="false">বাং</button>
+    </div>
+    <a href="#enroll" class="mob-btn">Enroll Free</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ═══ HERO ══════════════════════════════════ -->
+<section id="hero" aria-labelledby="hero-h" class="wm-section">
+  <!-- Watermark: compass logo (bottom-left) -->
+  <div class="wm-logo wm-bl" aria-hidden="true">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="88" stroke="white" stroke-width="6"/>
+      <circle cx="100" cy="100" r="70" stroke="white" stroke-width="3"/>
+      <polygon points="100,30 108,90 100,100 92,90" fill="white"/>
+      <polygon points="170,100 110,108 100,100 110,92" fill="white" opacity="0.5"/>
+      <polygon points="100,170 92,110 100,100 108,110" fill="white" opacity="0.5"/>
+      <polygon points="30,100 90,92 100,100 90,108" fill="white" opacity="0.8"/>
+      <ellipse cx="100" cy="135" rx="28" ry="16" stroke="white" stroke-width="4" fill="none"/>
+      <path d="M78 130 Q100 115 122 130" stroke="white" stroke-width="3" fill="none"/>
+      <line x1="100" y1="100" x2="100" y2="75" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-kicker reveal">
+        <span class="dot"></span>
+        <span data-lang="en" class="lang-visible">Khanakul · Hooghly · West Bengal</span>
+        <span data-lang="hi" class="hi">खनाकुल · हुगली · पश्चिम बंगाल</span>
+        <span data-lang="bn" class="bn">কানাকুল · হুগলি · পশ্চিমবঙ্গ</span>
+      </div>
+      <h1 id="hero-h" class="reveal d1">
+        <span data-lang="en" class="lang-visible">Computer Skills for<br>School, Life, and<br><em>Future Careers</em></span>
+        <span data-lang="hi" class="hi">स्कूल, जीवन और<br>भविष्य के करियर के लिए<br><em>कंप्यूटर कौशल</em></span>
+        <span data-lang="bn" class="bn">স্কুল, জীবন ও<br>ভবিষ্যৎ ক্যারিয়ারের জন্য<br><em>কম্পিউটার দক্ষতা</em></span>
+      </h1>
+      <p class="hero-bn reveal d1 bn" style="display:block;">
+        <span data-lang="en" class="lang-visible">স্কুল, জীবন ও ভবিষ্যৎ ক্যারিয়ারের জন্য কম্পিউটার দক্ষতা</span>
+        <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">स्कूल, जीवन और भविष्य के लिए कंप्यूटर कौशल</span>
+        <span data-lang="bn" class="bn">স্কুল, জীবন ও ভবিষ্যৎ ক্যারিয়ারের জন্য কম্পিউটার দক্ষতা</span>
+      </p>
+      <p class="hero-sub reveal d2">
+        <span data-lang="en" class="lang-visible">Learn computer basics, digital literacy, productivity tools and AI awareness from an experienced technology mentor. Free scholarship seats for government school students.</span>
+        <span data-lang="hi" class="hi">एक अनुभवी प्रौद्योगिकी मेंटर से कंप्यूटर बेसिक्स, डिजिटल साक्षरता, उत्पादकता उपकरण और AI जागरूकता सीखें। सरकारी स्कूल के छात्रों के लिए मुफ़्त छात्रवृत्ति सीटें।</span>
+        <span data-lang="bn" class="bn">একজন অভিজ্ঞ প্রযুক্তি মেন্টরের কাছ থেকে কম্পিউটার বেসিক্স, ডিজিটাল সাক্ষরতা, প্রোডাক্টিভিটি টুলস এবং AI সম্পর্কে জানুন। সরকারি স্কুলের শিক্ষার্থীদের জন্য বিনামূল্যে বৃত্তির আসন।</span>
+      </p>
+      <div class="hero-actions reveal d3">
+        <a href="#enroll" class="btn btn-amber">
+          <svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M5 13.18v4.5a8.38 8.38 0 0 0 14 0v-4.5"/></svg>
+          Start Learning
+        </a>
+        <a href="#mentor" class="btn btn-outline-white">Meet Your Mentor</a>
+      </div>
+      <div class="hero-proof reveal d4">
+        <div class="hp-item"><span class="hp-dot"></span><span data-lang="en" class="lang-visible">Free scholarship seats available</span><span data-lang="hi" class="hi">मुफ़्त छात्रवृत्ति सीटें उपलब्ध</span><span data-lang="bn" class="bn">বিনামূল্যে বৃত্তির আসন উপলব্ধ</span></div>
+        <div class="hp-item"><span class="hp-dot"></span><span data-lang="en" class="lang-visible">Classes in English &amp; Bengali</span><span data-lang="hi" class="hi">अंग्रेजी और बांग्ला में कक्षाएँ</span><span data-lang="bn" class="bn">ইংরেজি ও বাংলায় ক্লাস</span></div>
+        <div class="hp-item"><span class="hp-dot"></span><span data-lang="en" class="lang-visible">Government school students welcome</span><span data-lang="hi" class="hi">सरकारी स्कूल के छात्रों का स्वागत</span><span data-lang="bn" class="bn">সরকারি বিদ্যালয়ের শিক্ষার্থীদের স্বাগত</span></div>
+      </div>
+    </div>
+
+    <div class="hero-card" aria-hidden="true">
+      <span class="hc-label">Your Mentor</span>
+      <div class="hc-mentor-row">
+        <div class="hc-avatar">M</div>
+        <div>
+          <div class="hc-name">Max</div>
+          <div class="hc-role">
+            <span data-lang="en" class="lang-visible">Founder &amp; Computer Mentor</span>
+            <span data-lang="hi" class="hi">संस्थापक और कंप्यूटर मेंटर</span>
+            <span data-lang="bn" class="bn">প্রতিষ্ঠাতা ও কম্পিউটার মেন্টর</span>
+          </div>
+        </div>
+      </div>
+      <div class="hc-divider"></div>
+      <div class="hc-row"><span>Specialisation</span><span>Computer Ed. &amp; AI</span></div>
+      <div class="hc-row"><span>Location</span><span>Khanakul, Hooghly</span></div>
+      <div class="hc-row"><span>Teaches in</span><span>English &amp; Bengali</span></div>
+      <div class="hc-row"><span>Scholarship seats</span><span style="color:var(--green)">✓ Available</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRUST BAR ═══════════════════════════ -->
+<div id="trust" role="list" aria-label="Trust signals">
+  <div class="trust-inner">
+    <div class="trust-item" role="listitem">
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+      <div>
+        <div class="trust-label">
+          <span data-lang="en" class="lang-visible">Working Professional</span>
+          <span data-lang="hi" class="hi">कार्यरत पेशेवर</span>
+          <span data-lang="bn" class="bn">কর্মরত পেশাদার</span>
+        </div>
+        <div class="trust-sub">
+          <span data-lang="en" class="lang-visible">Active in the field</span>
+          <span data-lang="hi" class="hi">क्षेत्र में सक्रिय</span>
+          <span data-lang="bn" class="bn">ক্ষেত্রে সক্রিয়</span>
+        </div>
+      </div>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M5 13.18v4.5a8.38 8.38 0 0 0 14 0v-4.5"/></svg></div>
+      <div>
+        <div class="trust-label">
+          <span data-lang="en" class="lang-visible">NGO Educator</span>
+          <span data-lang="hi" class="hi">NGO शिक्षक</span>
+          <span data-lang="bn" class="bn">NGO শিক্ষক</span>
+        </div>
+        <div class="trust-sub">
+          <span data-lang="en" class="lang-visible">Mission-driven teaching</span>
+          <span data-lang="hi" class="hi">उद्देश्य-केंद्रित शिक्षण</span>
+          <span data-lang="bn" class="bn">লক্ষ্যভিত্তিক শিক্ষাদান</span>
+        </div>
+      </div>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <div>
+        <div class="trust-label">
+          <span data-lang="en" class="lang-visible">Industry Experience</span>
+          <span data-lang="hi" class="hi">उद्योग अनुभव</span>
+          <span data-lang="bn" class="bn">শিল্প অভিজ্ঞতা</span>
+        </div>
+        <div class="trust-sub">
+          <span data-lang="en" class="lang-visible">Real-world knowledge</span>
+          <span data-lang="hi" class="hi">वास्तविक ज्ञान</span>
+          <span data-lang="bn" class="bn">বাস্তব জ্ঞান</span>
+        </div>
+      </div>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div>
+        <div class="trust-label">
+          <span data-lang="en" class="lang-visible">Student-Friendly</span>
+          <span data-lang="hi" class="hi">छात्र-हितैषी</span>
+          <span data-lang="bn" class="bn">শিক্ষার্থীবান্ধব</span>
+        </div>
+        <div class="trust-sub">
+          <span data-lang="en" class="lang-visible">Patience &amp; clarity first</span>
+          <span data-lang="hi" class="hi">धैर्य और स्पष्टता पहले</span>
+          <span data-lang="bn" class="bn">ধৈর্য ও স্পষ্টতা আগে</span>
+        </div>
+      </div>
+    </div>
+    <div class="trust-item" role="listitem">
+      <div class="trust-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div>
+        <div class="trust-label">
+          <span data-lang="en" class="lang-visible">Practical Skills</span>
+          <span data-lang="hi" class="hi">व्यावहारिक कौशल</span>
+          <span data-lang="bn" class="bn">ব্যবহারিক দক্ষতা</span>
+        </div>
+        <div class="trust-sub">
+          <span data-lang="en" class="lang-visible">Hands-on, job-ready</span>
+          <span data-lang="hi" class="hi">हाथों-हाथ, नौकरी के लिए तैयार</span>
+          <span data-lang="bn" class="bn">হাতে-কলমে, চাকরির জন্য প্রস্তুত</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MEET THE MENTOR ══════════════════════ -->
+<section id="mentor" class="alt" aria-labelledby="mentor-h">
+  <div class="wrap">
+    <div class="mentor-grid">
+      <div class="mentor-photo-col reveal">
+        <div class="mentor-photo-frame">
+          <div class="mentor-photo-placeholder" role="img" aria-label="Mentor photo placeholder">
+            <div class="initial">M</div>
+            <div class="ph-note">Photo coming soon</div>
+          </div>
+          <div class="mentor-photo-meta">
+            <div class="meta-cell">
+              <div class="meta-num">5+</div>
+              <div class="meta-lbl">Years teaching</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-num">200+</div>
+              <div class="meta-lbl">Students reached</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-num">30+</div>
+              <div class="meta-lbl">Workshops run</div>
+            </div>
+            <div class="meta-cell">
+              <div class="meta-num">3+</div>
+              <div class="meta-lbl">Schools partnered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mentor-bio">
+        <span class="eyebrow">
+          <span data-lang="en" class="lang-visible">Meet your mentor</span>
+          <span data-lang="hi" class="hi">अपने मेंटर से मिलें</span>
+          <span data-lang="bn" class="bn">আপনার মেন্টরের সাথে পরিচিত হন</span>
+        </span>
+        <h2 id="mentor-h" class="section-h reveal d1">
+          <span data-lang="en" class="lang-visible">Max — Founder &amp;<br>Computer Educator</span>
+          <span data-lang="hi" class="hi">Max — संस्थापक और<br>कंप्यूटर शिक्षक</span>
+          <span data-lang="bn" class="bn">Max — প্রতিষ্ঠাতা ও<br>কম্পিউটার শিক্ষক</span>
+        </h2>
+        <span class="bn-sub bn reveal d1">
+          <span data-lang="en" class="lang-visible">কম্পিউটার মেন্টর ও প্রতিষ্ঠাতা</span>
+          <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">कंप्यूटर मेंटर और संस्थापक</span>
+          <span data-lang="bn" class="bn">কম্পিউটার মেন্টর ও প্রতিষ্ঠাতা</span>
+        </span>
+
+        <p class="reveal d2" style="margin-top:16px;">
+          <span data-lang="en" class="lang-visible">Max has been teaching computer skills to students in the Khanakul area for over five years, running the learning centre that became the foundation for this NGO. His teaching spans computer basics all the way through to an introduction to artificial intelligence — built for students who are often coming to a computer for the very first time.</span>
+          <span data-lang="hi" class="hi">Max पाँच से अधिक वर्षों से खनाकुल क्षेत्र के छात्रों को कंप्यूटर कौशल सिखा रहे हैं। वह उस शिक्षण केंद्र को चलाते हैं जो इस NGO का आधार बना। उनकी शिक्षा कंप्यूटर बेसिक्स से लेकर आर्टिफिशियल इंटेलिजेंस के परिचय तक जाती है — उन छात्रों के लिए जो पहली बार कंप्यूटर छू रहे हैं।</span>
+          <span data-lang="bn" class="bn">Max পাঁচ বছরেরও বেশি সময় ধরে কানাকুল এলাকার শিক্ষার্থীদের কম্পিউটার দক্ষতা শেখাচ্ছেন। তিনি সেই শিক্ষাকেন্দ্র পরিচালনা করেন যা এই NGO-র ভিত্তি হয়েছে। তাঁর শিক্ষণ কম্পিউটার বেসিক্স থেকে আর্টিফিশিয়াল ইন্টেলিজেন্সের পরিচয় পর্যন্ত বিস্তৃত।</span>
+        </p>
+
+        <p class="reveal d2">
+          <span data-lang="en" class="lang-visible">He founded Maxmin Foundation alongside co-founder Min with one clear goal: to make sure that a student's family income is never the reason they miss out on the digital skills that will matter for their entire working life.</span>
+          <span data-lang="hi" class="hi">उन्होंने सह-संस्थापक Min के साथ MaxMin Foundation की स्थापना एक स्पष्ट लक्ष्य के साथ की: यह सुनिश्चित करना कि किसी छात्र की पारिवारिक आय कभी भी उनके डिजिटल कौशल सीखने में बाधा न बने।</span>
+          <span data-lang="bn" class="bn">তিনি সহ-প্রতিষ্ঠাতা Min-এর সাথে MaxMin Foundation প্রতিষ্ঠা করেছেন একটি স্পষ্ট লক্ষ্য নিয়ে: নিশ্চিত করা যে কোনো শিক্ষার্থীর পারিবারিক আয় কখনো তার ডিজিটাল দক্ষতা অর্জনের পথে বাধা না হয়।</span>
+        </p>
+
+        <blockquote class="philosophy reveal d3">
+          <span data-lang="en" class="lang-visible">"Every student I've taught who struggled at the start — with the mouse, with typing, with understanding what the internet even is — went on to surprise themselves. The skill gap is not about ability. It's about access."</span>
+          <span data-lang="hi" class="hi">"हर वह छात्र जिसे मैंने पढ़ाया और जो शुरुआत में संघर्ष करता था — माउस से, टाइपिंग से, इंटरनेट समझने से — आगे जाकर खुद को हैरान कर देता था। कौशल की खाई क्षमता के बारे में नहीं है। यह पहुँच के बारे में है।"</span>
+          <span data-lang="bn" class="bn">"আমি যে প্রতিটি শিক্ষার্থীকে পড়িয়েছি যে শুরুতে সংগ্রাম করেছে — মাউস নিয়ে, টাইপিং নিয়ে, ইন্টারনেট বোঝার চেষ্টায় — সে পরে নিজেকেই অবাক করে দিয়েছে। দক্ষতার ফাঁকটা সক্ষমতার বিষয় নয়। এটা সুযোগের বিষয়।"</span>
+        </blockquote>
+
+        <div class="mentor-tags reveal d3">
+          <span class="mtag amber">Computer Basics</span>
+          <span class="mtag amber">MS Office</span>
+          <span class="mtag amber">AI &amp; ML Fundamentals</span>
+          <span class="mtag">Digital Literacy</span>
+          <span class="mtag">Online Safety</span>
+          <span class="mtag">Bengali-medium teaching</span>
+        </div>
+
+        <div class="cert-list reveal d4">
+          <div class="cert-item">
+            <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div>
+              <div class="cert-name">Computer Basics &amp; Digital Literacy Instruction</div>
+              <div class="cert-org">Khanakul Computer Centre · Ongoing since 2019</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div>
+              <div class="cert-name">AI Awareness &amp; Machine Learning Basics Educator</div>
+              <div class="cert-org">Self-directed learning, applied in classroom since 2023</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <div>
+              <div class="cert-name">MS Office &amp; Productivity Tools Trainer</div>
+              <div class="cert-org">Maxmin Foundation · 2-day crash course format</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#enroll" class="btn btn-amber reveal d4">
+          <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>
+          Book a Free Seat
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ IMPACT STATS ══════════════════════════ -->
+<section id="impact" aria-labelledby="impact-h" class="wm-section">
+  <div class="wm-logo wm-center" aria-hidden="true">
+    <svg viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 160 Q20 40 100 20 Q180 40 180 160" stroke="#0E2A47" stroke-width="8" fill="none"/>
+      <path d="M50 160 Q50 70 100 55 Q150 70 150 160" stroke="#E8970A" stroke-width="6" fill="none"/>
+      <rect x="70" y="100" width="18" height="5" rx="2" fill="#0E2A47"/>
+      <rect x="95" y="80" width="18" height="5" rx="2" fill="#E8970A"/>
+      <rect x="120" y="60" width="18" height="5" rx="2" fill="#1A8A6D"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="center-text" style="margin-bottom:40px;">
+      <span class="eyebrow">
+        <span data-lang="en" class="lang-visible">Our impact so far</span>
+        <span data-lang="hi" class="hi">अब तक का प्रभाव</span>
+        <span data-lang="bn" class="bn">এখন পর্যন্ত আমাদের প্রভাব</span>
+      </span>
+      <h2 id="impact-h" class="section-h reveal">
+        <span data-lang="en" class="lang-visible">Building from the ground up</span>
+        <span data-lang="hi" class="hi">जमीन से शुरुआत</span>
+        <span data-lang="bn" class="bn">একদম শূন্য থেকে গড়ে তোলা</span>
+      </h2>
+      <span class="bn-sub bn reveal d1">
+        <span data-lang="en" class="lang-visible">আমাদের এযাবৎ অর্জন</span>
+        <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">अब तक की उपलब्धियाँ</span>
+        <span data-lang="bn" class="bn">আমাদের এযাবৎ অর্জন</span>
+      </span>
+      <p class="section-p reveal d2">
+        <span data-lang="en" class="lang-visible">These numbers reflect the work done through our existing training centre before the formal NGO launch — real students, real outcomes.</span>
+        <span data-lang="hi" class="hi">ये संख्याएँ हमारे मौजूदा प्रशिक्षण केंद्र के माध्यम से NGO की औपचारिक शुरुआत से पहले किए गए काम को दर्शाती हैं — वास्तविक छात्र, वास्तविक परिणाम।</span>
+        <span data-lang="bn" class="bn">এই সংখ্যাগুলি আমাদের বিদ্যমান প্রশিক্ষণ কেন্দ্রের মাধ্যমে NGO-র আনুষ্ঠানিক সূচনার আগে করা কাজের প্রতিফলন — বাস্তব শিক্ষার্থী, বাস্তব ফলাফল।</span>
+      </p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="i-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="i-num" data-target="200">0</div>
+        <div class="i-lbl">
+          <span data-lang="en" class="lang-visible">Students trained</span>
+          <span data-lang="hi" class="hi">प्रशिक्षित छात्र</span>
+          <span data-lang="bn" class="bn">প্রশিক্ষিত শিক্ষার্থী</span>
+        </div>
+        <div class="i-sub">
+          <span data-lang="en" class="lang-visible">Across all course levels</span>
+          <span data-lang="hi" class="hi">सभी स्तरों में</span>
+          <span data-lang="bn" class="bn">সব কোর্স স্তরে</span>
+        </div>
+      </div>
+      <div class="impact-card reveal d1">
+        <div class="i-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <div class="i-num" data-target="30">0</div>
+        <div class="i-lbl">
+          <span data-lang="en" class="lang-visible">Workshops conducted</span>
+          <span data-lang="hi" class="hi">कार्यशालाएँ आयोजित</span>
+          <span data-lang="bn" class="bn">পরিচালিত কর্মশালা</span>
+        </div>
+        <div class="i-sub">
+          <span data-lang="en" class="lang-visible">Hands-on, practical sessions</span>
+          <span data-lang="hi" class="hi">व्यावहारिक सत्र</span>
+          <span data-lang="bn" class="bn">হাতে-কলমে, ব্যবহারিক সেশন</span>
+        </div>
+      </div>
+      <div class="impact-card reveal d2">
+        <div class="i-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5V19a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg></div>
+        <div class="i-num" data-target="3">0</div>
+        <div class="i-lbl">
+          <span data-lang="en" class="lang-visible">Schools reached</span>
+          <span data-lang="hi" class="hi">विद्यालय तक पहुँच</span>
+          <span data-lang="bn" class="bn">স্কুলে পৌঁছানো</span>
+        </div>
+        <div class="i-sub">
+          <span data-lang="en" class="lang-visible">Government schools, Hooghly</span>
+          <span data-lang="hi" class="hi">सरकारी विद्यालय, हुगली</span>
+          <span data-lang="bn" class="bn">সরকারি বিদ্যালয়, হুগলি</span>
+        </div>
+      </div>
+      <div class="impact-card reveal d3">
+        <div class="i-icon"><svg viewBox="0 0 24 24"><path d="m12 2 3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7Z"/></svg></div>
+        <div class="i-num">Free</div>
+        <div class="i-lbl">
+          <span data-lang="en" class="lang-visible">Scholarship seats per batch</span>
+          <span data-lang="hi" class="hi">प्रति बैच छात्रवृत्ति सीटें</span>
+          <span data-lang="bn" class="bn">প্রতি ব্যাচে বৃত্তির আসন</span>
+        </div>
+        <div class="i-sub">
+          <span data-lang="en" class="lang-visible">Available now for Batch 1</span>
+          <span data-lang="hi" class="hi">Batch 1 के लिए अभी उपलब्ध</span>
+          <span data-lang="bn" class="bn">Batch 1-এর জন্য এখন উপলব্ধ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT STUDENTS LEARN ══════════════════ -->
+<section id="courses" class="alt" aria-labelledby="courses-h">
+  <div class="wrap">
+    <div class="center-text" style="margin-bottom:40px;">
+      <span class="eyebrow">
+        <span data-lang="en" class="lang-visible">What you'll learn</span>
+        <span data-lang="hi" class="hi">आप क्या सीखेंगे</span>
+        <span data-lang="bn" class="bn">আপনি কী শিখবেন</span>
+      </span>
+      <h2 id="courses-h" class="section-h reveal">
+        <span data-lang="en" class="lang-visible">Six areas of study</span>
+        <span data-lang="hi" class="hi">छह अध्ययन क्षेत्र</span>
+        <span data-lang="bn" class="bn">ছয়টি অধ্যয়ন ক্ষেত্র</span>
+      </h2>
+      <span class="bn-sub bn reveal d1">
+        <span data-lang="en" class="lang-visible">ছয়টি বিষয়</span>
+        <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">छह विषय</span>
+        <span data-lang="bn" class="bn">ছয়টি বিষয়</span>
+      </span>
+      <p class="section-p reveal d2">
+        <span data-lang="en" class="lang-visible">Every course is taught by Max in small batches — practical, bilingual, and built around what students in Khanakul actually need.</span>
+        <span data-lang="hi" class="hi">प्रत्येक कोर्स Max द्वारा छोटे बैचों में पढ़ाया जाता है — व्यावहारिक, द्विभाषी, और खनाकुल के छात्रों की वास्तविक जरूरतों के अनुरूप।</span>
+        <span data-lang="bn" class="bn">প্রতিটি কোর্স Max ছোট ব্যাচে পড়ান — ব্যবহারিক, দ্বিভাষী, এবং কানাকুলের শিক্ষার্থীদের আসল প্রয়োজনীয়তার কথা মাথায় রেখে তৈরি।</span>
+      </p>
+    </div>
+    <div class="learn-grid">
+      <div class="learn-card reveal">
+        <div class="lc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <span class="lc-num">Course 01</span>
+        <h3>Computer Basics</h3>
+        <p>
+          <span data-lang="en" class="lang-visible">Hardware, operating systems, file management, typing, and navigating a computer — designed for first-time users.</span>
+          <span data-lang="hi" class="hi">हार्डवेयर, ऑपरेटिंग सिस्टम, फ़ाइल प्रबंधन, टाइपिंग और कंप्यूटर नेविगेशन — पहली बार उपयोगकर्ताओं के लिए।</span>
+          <span data-lang="bn" class="bn">হার্ডওয়্যার, অপারেটিং সিস্টেম, ফাইল ম্যানেজমেন্ট, টাইপিং এবং কম্পিউটার চালানো — প্রথমবার ব্যবহারকারীদের জন্য।</span>
+        </p>
+      </div>
+      <div class="learn-card reveal d1">
+        <div class="lc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20A15 15 0 0 1 12 2z"/></svg></div>
+        <span class="lc-num">Course 02</span>
+        <h3>Internet Skills</h3>
+        <p>
+          <span data-lang="en" class="lang-visible">Safe browsing, using email, research skills, identifying reliable sources, and protecting your personal information online.</span>
+          <span data-lang="hi" class="hi">सुरक्षित ब्राउज़िंग, ईमेल उपयोग, शोध कौशल, विश्वसनीय स्रोतों की पहचान और ऑनलाइन व्यक्तिगत जानकारी की सुरक्षा।</span>
+          <span data-lang="bn" class="bn">নিরাপদ ব্রাউজিং, ইমেইল ব্যবহার, গবেষণা দক্ষতা, নির্ভরযোগ্য তথ্যসূত্র চেনা এবং অনলাইনে ব্যক্তিগত তথ্য সুরক্ষা।</span>
+        </p>
+      </div>
+      <div class="learn-card reveal d2">
+        <div class="lc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <span class="lc-num">Course 03</span>
+        <h3>Office Productivity</h3>
+        <p>
+          <span data-lang="en" class="lang-visible">Microsoft Word, Excel and PowerPoint — the tools most required for school assignments, college applications and job-readiness.</span>
+          <span data-lang="hi" class="hi">Microsoft Word, Excel और PowerPoint — स्कूल असाइनमेंट, कॉलेज आवेदन और नौकरी की तैयारी के लिए सबसे ज़रूरी उपकरण।</span>
+          <span data-lang="bn" class="bn">Microsoft Word, Excel এবং PowerPoint — স্কুলের কাজ, কলেজ আবেদন এবং চাকরির প্রস্তুতির জন্য সবচেয়ে প্রয়োজনীয় টুলস।</span>
+        </p>
+      </div>
+      <div class="learn-card reveal">
+        <div class="lc-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <span class="lc-num">Course 04</span>
+        <h3>Digital Safety</h3>
+        <p>
+          <span data-lang="en" class="lang-visible">Scam awareness, password hygiene, privacy settings, safe social media use, and basic cybersecurity habits that protect your family.</span>
+          <span data-lang="hi" class="hi">स्कैम जागरूकता, पासवर्ड सुरक्षा, गोपनीयता सेटिंग, सुरक्षित सोशल मीडिया उपयोग, और बुनियादी साइबर सुरक्षा आदतें जो आपके परिवार की रक्षा करती हैं।</span>
+          <span data-lang="bn" class="bn">স্ক্যাম সচেতনতা, পাসওয়ার্ড সুরক্ষা, গোপনীয়তা সেটিং, নিরাপদ সোশ্যাল মিডিয়া ব্যবহার এবং মৌলিক সাইবার নিরাপত্তা অভ্যাস যা আপনার পরিবারকে রক্ষা করে।</span>
+        </p>
+      </div>
+      <div class="learn-card reveal d1">
+        <div class="lc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+        <span class="lc-num">Course 05</span>
+        <h3>AI Fundamentals</h3>
+        <p>
+          <span data-lang="en" class="lang-visible">What artificial intelligence is, how it works in everyday life, hands-on use of basic AI tools, and how to think about AI responsibly.</span>
+          <span data-lang="hi" class="hi">आर्टिफिशियल इंटेलिजेंस क्या है, यह रोज़मर्रा की ज़िंदगी में कैसे काम करता है, बुनियादी AI टूल्स का व्यावहारिक उपयोग, और AI के बारे में जिम्मेदारी से सोचना।</span>
+          <span data-lang="bn" class="bn">আর্টিফিশিয়াল ইন্টেলিজেন্স কী, এটি দৈনন্দিন জীবনে কীভাবে কাজ করে, মৌলিক AI টুলসের হাতে-কলমে ব্যবহার এবং দায়িত্বশীলভাবে AI নিয়ে ভাবা।</span>
+        </p>
+      </div>
+      <div class="learn-card reveal d2">
+        <div class="lc-icon"><svg viewBox="0 0 24 24"><path d="M4 19V5a2 2 0 0 1 2-2h12l2 2v14H6a2 2 0 0 1-2-2Z"/><path d="M8 9h8M8 13h5"/></svg></div>
+        <span class="lc-num">Course 06</span>
+        <h3>Career Readiness</h3>
+        <p>
+          <span data-lang="en" class="lang-visible">Digital job applications, professional communication, using technology in the workplace, and building a simple online presence.</span>
+          <span data-lang="hi" class="hi">डिजिटल नौकरी आवेदन, पेशेवर संचार, कार्यस्थल में प्रौद्योगिकी का उपयोग, और एक सरल ऑनलाइन उपस्थिति बनाना।</span>
+          <span data-lang="bn" class="bn">ডিজিটাল চাকরির আবেদন, পেশাদার যোগাযোগ, কর্মক্ষেত্রে প্রযুক্তি ব্যবহার এবং একটি সহজ অনলাইন পরিচিতি তৈরি।</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MIN TO MAX JOURNEY ════════════════════ -->
+<section id="roadmap" aria-labelledby="roadmap-h">
+  <div class="wrap">
+    <div class="center-text" style="margin-bottom:48px;">
+      <span class="eyebrow">
+        <span data-lang="en" class="lang-visible">Your learning journey</span>
+        <span data-lang="hi" class="hi">आपकी सीखने की यात्रा</span>
+        <span data-lang="bn" class="bn">আপনার শেখার যাত্রা</span>
+      </span>
+      <h2 id="roadmap-h" class="section-h reveal">
+        <span data-lang="en" class="lang-visible">The Min to Max Journey</span>
+        <span data-lang="hi" class="hi">मिन से मैक्स तक की यात्रा</span>
+        <span data-lang="bn" class="bn">মিন থেকে ম্যাক্স যাত্রা</span>
+      </h2>
+      <span class="bn-sub bn reveal d1">
+        <span data-lang="en" class="lang-visible">মিন থেকে শুরু, ম্যাক্স-এ শেষ — ঠিক আমাদের প্রতিষ্ঠাতাদের নামের মতো</span>
+        <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">मिन से शुरू, मैक्स पर खत्म — जैसे हमारे संस्थापकों के नाम</span>
+        <span data-lang="bn" class="bn">মিন থেকে শুরু, ম্যাক্স-এ শেষ — ঠিক আমাদের প্রতিষ্ঠাতাদের নামের মতো</span>
+      </span>
+      <p class="section-p reveal d2">
+        <span data-lang="en" class="lang-visible">Named after our founders Min and Max — every student starts at <strong>Min</strong> (minimum, day one, zero experience) and works toward <strong>Max</strong> (maximum potential, career-ready). Seven steps. One clear path.</span>
+        <span data-lang="hi" class="hi">हमारे संस्थापकों Min और Max के नाम पर — हर छात्र <strong>Min</strong> से शुरू करता है (शुरुआत, पहला दिन, शून्य अनुभव) और <strong>Max</strong> की ओर बढ़ता है (अधिकतम संभावना, करियर के लिए तैयार)।</span>
+        <span data-lang="bn" class="bn">আমাদের প্রতিষ্ঠাতা Min ও Max-এর নামে — প্রতিটি শিক্ষার্থী <strong>Min</strong> থেকে শুরু করে (প্রথম দিন, শূন্য অভিজ্ঞতা) এবং <strong>Max</strong>-এর দিকে এগিয়ে যায় (সর্বোচ্চ সম্ভাবনা, ক্যারিয়ার প্রস্তুত)।</span>
+      </p>
+    </div>
+
+    <div class="mtm-wrap reveal d2">
+      <div class="mtm-line" aria-hidden="true"></div>
+      <div class="mtm-track">
+
+        <!-- Step: MIN (start) -->
+        <div class="mtm-step endpoint">
+          <div class="mtm-dot-wrap">
+            <span class="mtm-founder-tag tag-min">Min · Start</span>
+            <div class="mtm-dot dot-min">Min</div>
+          </div>
+          <h4>
+            <span data-lang="en" class="lang-visible">Day One</span>
+            <span data-lang="hi" class="hi">पहला दिन</span>
+            <span data-lang="bn" class="bn">প্রথম দিন</span>
+          </h4>
+          <p>
+            <span data-lang="en" class="lang-visible">Zero experience. First computer. Fresh start.</span>
+            <span data-lang="hi" class="hi">शून्य अनुभव। पहला कंप्यूटर।</span>
+            <span data-lang="bn" class="bn">শূন্য অভিজ্ঞতা। প্রথম কম্পিউটার।</span>
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="mtm-step">
+          <div class="mtm-dot-wrap">
+            <div class="mtm-dot dot-mid" aria-label="Step 2">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+          </div>
+          <h4>
+            <span data-lang="en" class="lang-visible">Computer Basics</span>
+            <span data-lang="hi" class="hi">बेसिक्स</span>
+            <span data-lang="bn" class="bn">বেসিক্স</span>
+          </h4>
+          <p>
+            <span data-lang="en" class="lang-visible">Hardware, OS, typing, files</span>
+            <span data-lang="hi" class="hi">हार्डवेयर, टाइपिंग</span>
+            <span data-lang="bn" class="bn">হার্ডওয়্যার, টাইপিং</span>
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="mtm-step">
+          <div class="mtm-dot-wrap">
+            <div class="mtm-dot dot-mid" aria-label="Step 3">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20A15 15 0 0 1 12 2z"/></svg>
+            </div>
+          </div>
+          <h4>
+            <span data-lang="en" class="lang-visible">Internet Skills</span>
+            <span data-lang="hi" class="hi">इंटरनेट</span>
+            <span data-lang="bn" class="bn">ইন্টারনেট</span>
+          </h4>
+          <p>
+            <span data-lang="en" class="lang-visible">Browse, email, research safely</span>
+            <span data-lang="hi" class="hi">ब्राउज़, ईमेल</span>
+            <span data-lang="bn" class="bn">ব্রাউজ, ইমেইল</span>
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="mtm-step">
+          <div class="mtm-dot-wrap">
+            <div class="mtm-dot dot-mid" aria-label="Step 4">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+          </div>
+          <h4>
+            <span data-lang="en" class="lang-visible">Office Tools</span>
+            <span data-lang="hi" class="hi">ऑफिस टूल्स</span>
+            <span data-lang="bn" class="bn">অফিস টুলস</span>
+          </h4>
+          <p>
+            <span data-lang="en" class="lang-visible">Word, Excel, PowerPoint</span>
+            <span data-lang="hi" class="hi">वर्ड, एक्सेल, PPT</span>
+            <span data-lang="bn" class="bn">ওয়ার্ড, এক্সেল, PPT</span>
+          </p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="mtm-step">
+          <div class="mtm-dot-wrap">
+            <div class="mtm-dot dot-adv" aria-label="Step 5">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+          </div>
+          <h4>
+            <span data-lang="en" class="lang-visible">Digital Safety</span>
+            <span data-lang="hi" class="hi">डिजिटल सुरक्षा</span>
+            <span data-lang="bn" class="bn">ডিজিটাল নিরাপত্তা</span>
+          </h4>
+          <p>
+            <span data-lang="en" class="lang-visible">Stay safe, spot scams</span>
+            <span data-lang="hi" class="hi">सुरक्षित रहें</span>
+            <span data-lang="bn" class="bn">নিরাপদ থাকুন</span>
+          </p>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="mtm-step">
+          <div class="mtm-dot-wrap">
+            <div class="mtm-dot dot-adv" aria-label="Step 6">
+              <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3"/></svg>
+            </div>
+          </div>
+          <h4>
+            <span data-lang="en" class="lang-visible">AI Awareness</span>
+            <span data-lang="hi" class="hi">AI जागरूकता</span>
+            <span data-lang="bn" class="bn">AI সচেতনতা</span>
+          </h4>
+          <p>
+            <span data-lang="en" class="lang-visible">Understand & use AI tools</span>
+            <span data-lang="hi" class="hi">AI को समझें</span>
+            <span data-lang="bn" class="bn">AI বুঝুন</span>
+          </p>
+        </div>
+
+        <!-- Step: MAX (end) -->
+        <div class="mtm-step endpoint">
+          <div class="mtm-dot-wrap">
+            <span class="mtm-founder-tag tag-max">Max · Goal</span>
+            <div class="mtm-dot dot-max">Max</div>
+          </div>
+          <h4>
+            <span data-lang="en" class="lang-visible">Career Ready</span>
+            <span data-lang="hi" class="hi">करियर तैयार</span>
+            <span data-lang="bn" class="bn">ক্যারিয়ার প্রস্তুত</span>
+          </h4>
+          <p>
+            <span data-lang="en" class="lang-visible">Maximum potential. Real-world skills.</span>
+            <span data-lang="hi" class="hi">अधिकतम संभावना।</span>
+            <span data-lang="bn" class="bn">সর্বোচ্চ সম্ভাবনা।</span>
+          </p>
+        </div>
+
+      </div><!-- end track -->
+    </div><!-- end mtm-wrap -->
+
+    <!-- Brand strip -->
+    <div class="mtm-brand-strip reveal d3">
+      <div class="mtm-arrow-visual" aria-hidden="true">
+        <span class="mav-pill mav-min">Min</span>
+        <span class="mav-arrow">→ · · · →</span>
+        <span class="mav-pill mav-max">Max</span>
+      </div>
+      <div class="mbs-text">
+        <h3>
+          <span data-lang="en" class="lang-visible">Why we call it "Min to Max"</span>
+          <span data-lang="hi" class="hi">"मिन से मैक्स" क्यों?</span>
+          <span data-lang="bn" class="bn">কেন "মিন থেকে ম্যাক্স"?</span>
+        </h3>
+        <p>
+          <span data-lang="en" class="lang-visible">Our co-founder <strong style="color:rgba(255,255,255,0.90)">Min</strong> represents where every student begins — minimum experience, maximum curiosity. Our founder <strong style="color:var(--amber)">Max</strong> represents where every student can go — maximum skill, maximum opportunity. The journey between them is what Maxmin Foundation is built to deliver.</span>
+          <span data-lang="hi" class="hi">हमारे सह-संस्थापक <strong style="color:rgba(255,255,255,0.90)">Min</strong> उस जगह का प्रतिनिधित्व करते हैं जहाँ हर छात्र शुरू करता है। हमारे संस्थापक <strong style="color:var(--amber)">Max</strong> उस जगह का प्रतिनिधित्व करते हैं जहाँ हर छात्र पहुँच सकता है।</span>
+          <span data-lang="bn" class="bn">আমাদের সহ-প্রতিষ্ঠাতা <strong style="color:rgba(255,255,255,0.90)">Min</strong> প্রতিনিধিত্ব করেন প্রতিটি শিক্ষার্থীর শুরুকে। আমাদের প্রতিষ্ঠাতা <strong style="color:var(--amber)">Max</strong> প্রতিনিধিত্ব করেন প্রতিটি শিক্ষার্থীর সম্ভাবনাকে।</span>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ STUDENT SUCCESS STORIES ══════════════ -->
+<section id="stories" class="alt" aria-labelledby="stories-h">
+  <div class="wrap">
+    <div class="center-text" style="margin-bottom:40px;">
+      <span class="eyebrow">
+        <span data-lang="en" class="lang-visible">Student voices</span>
+        <span data-lang="hi" class="hi">छात्रों की आवाज़</span>
+        <span data-lang="bn" class="bn">শিক্ষার্থীদের কথা</span>
+      </span>
+      <h2 id="stories-h" class="section-h reveal">
+        <span data-lang="en" class="lang-visible">What students say</span>
+        <span data-lang="hi" class="hi">छात्र क्या कहते हैं</span>
+        <span data-lang="bn" class="bn">শিক্ষার্থীরা কী বলে</span>
+      </h2>
+      <span class="bn-sub bn reveal d1">
+        <span data-lang="en" class="lang-visible">শিক্ষার্থীরা কী বলে</span>
+        <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">छात्रों के अनुभव</span>
+        <span data-lang="bn" class="bn">শিক্ষার্থীরা কী বলে</span>
+      </span>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">
+          <span data-lang="en" class="lang-visible">"Before joining, I had never held a mouse. By the end of the Computer Basics course I was typing my own documents. Max teaches at your speed — he never makes you feel behind."</span>
+          <span data-lang="hi" class="hi">"जोड़ने से पहले, मैंने कभी माउस नहीं पकड़ा था। Computer Basics कोर्स के अंत तक मैं अपने दस्तावेज़ टाइप कर रहा था। Max आपकी गति से पढ़ाते हैं — वह आपको कभी पीछे महसूस नहीं कराते।"</span>
+          <span data-lang="bn" class="bn">"যোগ দেওয়ার আগে আমি কখনো মাউস ধরিনি। Computer Basics কোর্সের শেষে আমি নিজেই নথি টাইপ করছিলাম। Max আপনার গতিতে পড়ান — তিনি আপনাকে কখনো পিছিয়ে পড়া অনুভব করান না।"</span>
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Ananya R.</div>
+            <div class="testi-role">
+              <span data-lang="en" class="lang-visible">Class 10 · Government School, Khanakul</span>
+              <span data-lang="hi" class="hi">कक्षा 10 · सरकारी विद्यालय, खनाकुल</span>
+              <span data-lang="bn" class="bn">দশম শ্রেণি · সরকারি বিদ্যালয়, কানাকুল</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal d1">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">
+          <span data-lang="en" class="lang-visible">"I took the MS Office course to prepare my college application. I didn't know Excel at all — two days later I was making basic spreadsheets. The scholarship made it possible for me to attend."</span>
+          <span data-lang="hi" class="hi">"मैंने अपने कॉलेज आवेदन की तैयारी के लिए MS Office कोर्स लिया। मुझे Excel बिल्कुल नहीं आता था — दो दिन बाद मैं बुनियादी स्प्रेडशीट बना रहा था। छात्रवृत्ति ने मेरे लिए यह संभव किया।"</span>
+          <span data-lang="bn" class="bn">"আমি কলেজ আবেদনের প্রস্তুতির জন্য MS Office কোর্স নিয়েছিলাম। আমি Excel একদমই জানতাম না — দুই দিন পর আমি মৌলিক স্প্রেডশিট তৈরি করছিলাম। বৃত্তিই আমার পক্ষে এটা সম্ভব করেছে।"</span>
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">R</div>
+          <div>
+            <div class="testi-name">Rajib M.</div>
+            <div class="testi-role">
+              <span data-lang="en" class="lang-visible">Class 12 · Scholarship recipient</span>
+              <span data-lang="hi" class="hi">कक्षा 12 · छात्रवृत्ति प्राप्तकर्ता</span>
+              <span data-lang="bn" class="bn">দ্বাদশ শ্রেণি · বৃত্তিপ্রাপ্ত শিক্ষার্থী</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal d2">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">
+          <span data-lang="en" class="lang-visible">"I sent my daughter here because I had heard Max was a good teacher. She now explains AI tools to me at home. That's how good the teaching is — she understood enough to teach her parents."</span>
+          <span data-lang="hi" class="hi">"मैंने अपनी बेटी को यहाँ भेजा क्योंकि मैंने सुना था कि Max एक अच्छे शिक्षक हैं। वह अब घर पर मुझे AI टूल्स समझाती है। इतनी अच्छी पढ़ाई है — उसने इतना समझा कि अपने माता-पिता को सिखा सके।"</span>
+          <span data-lang="bn" class="bn">"আমি আমার মেয়েকে এখানে পাঠিয়েছিলাম কারণ শুনেছিলাম Max একজন ভালো শিক্ষক। সে এখন বাড়িতে আমাকে AI টুলস বোঝায়। পড়ানো এতটাই ভালো — সে নিজেই তার বাবা-মাকে শেখানোর মতো বুঝেছে।"</span>
+        </p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div>
+            <div class="testi-name">Priya Das</div>
+            <div class="testi-role">
+              <span data-lang="en" class="lang-visible">Parent · Khanakul</span>
+              <span data-lang="hi" class="hi">अभिभावक · खनाकुल</span>
+              <span data-lang="bn" class="bn">অভিভাবক · কানাকুল</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="testi-disclaimer reveal d3">
+      <span data-lang="en" class="lang-visible">— These are representative stories. Real student testimonials will be added with permission after Batch 1 completes. —</span>
+      <span data-lang="hi" class="hi">— ये प्रतिनिधि कहानियाँ हैं। Batch 1 पूरा होने के बाद अनुमति लेकर वास्तविक छात्रों के अनुभव जोड़े जाएँगे। —</span>
+      <span data-lang="bn" class="bn">— এগুলি প্রতিনিধিত্বমূলক গল্প। Batch 1 সম্পন্ন হওয়ার পর অনুমতি নিয়ে বাস্তব শিক্ষার্থীদের অভিজ্ঞতা যুক্ত করা হবে। —</span>
+    </p>
+  </div>
+</section>
+
+<!-- ═══ CLASSROOM GALLERY ════════════════════ -->
+<section id="gallery" aria-labelledby="gallery-h">
+  <div class="wrap">
+    <div class="center-text" style="margin-bottom:36px;">
+      <span class="eyebrow">
+        <span data-lang="en" class="lang-visible">Inside the classroom</span>
+        <span data-lang="hi" class="hi">कक्षा के अंदर</span>
+        <span data-lang="bn" class="bn">ক্লাসরুমের ভেতরে</span>
+      </span>
+      <h2 id="gallery-h" class="section-h reveal">
+        <span data-lang="en" class="lang-visible">Where learning happens</span>
+        <span data-lang="hi" class="hi">जहाँ सीखना होता है</span>
+        <span data-lang="bn" class="bn">যেখানে শেখা হয়</span>
+      </h2>
+      <span class="bn-sub bn reveal d1">
+        <span data-lang="en" class="lang-visible">ক্লাসরুমের ভেতরে</span>
+        <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">कक्षा के अंदर</span>
+        <span data-lang="bn" class="bn">ক্লাসরুমের ভেতরে</span>
+      </span>
+      <p class="section-p reveal d2">
+        <span data-lang="en" class="lang-visible">Real photos of our Khanakul learning centre will appear here once Batch 1 is underway. Placeholders shown below.</span>
+        <span data-lang="hi" class="hi">हमारे खनाकुल शिक्षण केंद्र की वास्तविक तस्वीरें यहाँ Batch 1 शुरू होने के बाद दिखाई जाएँगी।</span>
+        <span data-lang="bn" class="bn">আমাদের কানাকুল শিক্ষাকেন্দ্রের বাস্তব ছবিগুলি Batch 1 শুরু হলে এখানে দেখা যাবে।</span>
+      </p>
+    </div>
+    <div class="gallery-grid reveal d2">
+      <div class="gallery-item">
+        <div class="gallery-ph">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Classroom view</span>
+        </div>
+        <div class="gallery-caption">Khanakul Learning Centre</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-ph">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Students at computers</span>
+        </div>
+        <div class="gallery-caption">Hands-on practice sessions</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-ph">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Workshop in session</span>
+        </div>
+        <div class="gallery-caption">MS Office workshop</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-ph">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Certificate ceremony</span>
+        </div>
+        <div class="gallery-caption">Completion day</div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-ph">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Community visit</span>
+        </div>
+        <div class="gallery-caption">School outreach, Hooghly</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MISSION ══════════════════════════════ -->
+<section id="mission" class="wm-section">
+  <!-- Watermark: book+cross logo top-right -->
+  <div class="wm-logo wm-tr" style="opacity:0.06;" aria-hidden="true">
+    <svg viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M30 20 L30 160 Q30 170 50 170 L170 170 L170 20 Q170 10 150 10 L50 10 Q30 10 30 20Z" stroke="white" stroke-width="6" fill="none"/>
+      <line x1="100" y1="10" x2="100" y2="170" stroke="white" stroke-width="4"/>
+      <rect x="68" y="28" width="24" height="6" rx="3" fill="white"/>
+      <rect x="76" y="20" width="8" height="22" rx="3" fill="white"/>
+      <rect x="110" y="28" width="40" height="5" rx="2.5" fill="white" opacity="0.6"/>
+      <rect x="110" y="42" width="32" height="5" rx="2.5" fill="white" opacity="0.6"/>
+      <rect x="110" y="56" width="36" height="5" rx="2.5" fill="white" opacity="0.6"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="mission-inner reveal">
+      <div>
+      <div>
+        <span class="eyebrow light">
+          <span data-lang="en" class="lang-visible">Our mission</span>
+          <span data-lang="hi" class="hi">हमारा मिशन</span>
+          <span data-lang="bn" class="bn">আমাদের লক্ষ্য</span>
+        </span>
+        <h2 class="section-h" style="color:#fff;margin-top:8px;">
+          <span data-lang="en" class="lang-visible">Every student deserves a digital future</span>
+          <span data-lang="hi" class="hi">हर छात्र एक डिजिटल भविष्य का हकदार है</span>
+          <span data-lang="bn" class="bn">প্রতিটি শিক্ষার্থী একটি ডিজিটাল ভবিষ্যতের হকদার</span>
+        </h2>
+        <p class="section-p" style="color:rgba(255,255,255,0.72);max-width:none;margin-top:12px;">
+          <span data-lang="en" class="lang-visible">MaxMin Foundation exists because the gap between government and private school students access to computer education is not a small gap — it is a widening chasm that reshapes a student's entire career trajectory.</span>
+          <span data-lang="hi" class="hi">MaxMin Foundation इसलिए अस्तित्व में है क्योंकि सरकारी और निजी स्कूल के छात्रों के बीच कंप्यूटर शिक्षा तक पहुँच का अंतर छोटा नहीं है — यह एक बढ़ती हुई खाई है।</span>
+          <span data-lang="bn" class="bn">MaxMin Foundation এজন্য অস্তিত্বশীল কারণ সরকারি ও বেসরকারি বিদ্যালয়ের শিক্ষার্থীদের কম্পিউটার শিক্ষায় প্রবেশাধিকারের ফাঁকটি ছোট নয়।</span>
+        </p>
+        <div class="mission-pts">
+          <div class="mpt">
+            <div class="mpt-icon"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5V19a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg></div>
+            <div class="mpt-text">
+              <h4>
+                <span data-lang="en" class="lang-visible">Local and embedded</span>
+                <span data-lang="hi" class="hi">स्थानीय और जुड़ा हुआ</span>
+                <span data-lang="bn" class="bn">স্থানীয় ও সংযুক্ত</span>
+              </h4>
+              <p>
+                <span data-lang="en" class="lang-visible">We're not a remote or pre-recorded program. We're in Khanakul, taught by people who know the community.</span>
+                <span data-lang="hi" class="hi">हम कोई दूरस्थ कार्यक्रम नहीं हैं। हम खनाकुल में हैं, उन लोगों द्वारा पढ़ाया जाता है जो समुदाय को जानते हैं।</span>
+                <span data-lang="bn" class="bn">আমরা কোনো দূরবর্তী প্রোগ্রাম নই। আমরা কানাকুলে আছি, এমন মানুষদের দ্বারা পড়ানো হয় যারা সম্প্রদায়কে চেনেন।</span>
+              </p>
+            </div>
+          </div>
+          <div class="mpt">
+            <div class="mpt-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div class="mpt-text">
+              <h4>
+                <span data-lang="en" class="lang-visible">Scholarship-first design</span>
+                <span data-lang="hi" class="hi">छात्रवृत्ति-प्रथम डिज़ाइन</span>
+                <span data-lang="bn" class="bn">বৃত্তি-প্রথম পরিকল্পনা</span>
+              </h4>
+              <p>
+                <span data-lang="en" class="lang-visible">Scholarship seats are not an afterthought — they are a core part of every batch we run.</span>
+                <span data-lang="hi" class="hi">छात्रवृत्ति सीटें बाद की सोच नहीं हैं — वे हर बैच का मूल हिस्सा हैं।</span>
+                <span data-lang="bn" class="bn">বৃত্তির আসনগুলি পরে যোগ করা বিষয় নয় — এগুলি প্রতিটি ব্যাচের মূল অংশ।</span>
+              </p>
+            </div>
+          </div>
+          <div class="mpt">
+            <div class="mpt-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+            <div class="mpt-text">
+              <h4>
+                <span data-lang="en" class="lang-visible">Built for the long term</span>
+                <span data-lang="hi" class="hi">दीर्घकाल के लिए बना</span>
+                <span data-lang="bn" class="bn">দীর্ঘমেয়াদের জন্য তৈরি</span>
+              </h4>
+              <p>
+                <span data-lang="en" class="lang-visible">We begin with basics and build a path all the way through AI — so students are not limited in where they can go.</span>
+                <span data-lang="hi" class="hi">हम बेसिक्स से शुरू करते हैं और AI तक का रास्ता बनाते हैं — ताकि छात्रों की मंजिल सीमित न हो।</span>
+                <span data-lang="bn" class="bn">আমরা বেসিক্স দিয়ে শুরু করি এবং AI পর্যন্ত পথ তৈরি করি — যাতে শিক্ষার্থীরা কোথায় যেতে পারবে তা সীমাবদ্ধ না হয়।</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="mission-quote">
+
+        <div class="mission-quote">
+          <span data-lang="en" class="lang-visible">"A government school student in Khanakul has the same potential as any student in a city school. The only difference is what they have been given access to. We are trying to change that — one batch at a time."</span>
+          <span data-lang="hi" class="hi">"खनाकुल में एक सरकारी स्कूल के छात्र में किसी भी शहरी स्कूल के छात्र जितनी क्षमता है। फ़र्क सिर्फ यह है कि उन्हें क्या उपलब्ध कराया गया है। हम एक-एक बैच करके यह बदलने की कोशिश कर रहे हैं।"</span>
+          <span data-lang="bn" class="bn">"কানাকুলের একজন সরকারি বিদ্যালয়ের শিক্ষার্থীর মধ্যে শহরের যেকোনো বিদ্যালয়ের শিক্ষার্থীর মতোই সম্ভাবনা আছে। পার্থক্য শুধু তাদের কী সুযোগ দেওয়া হয়েছে। আমরা এক এক ব্যাচ করে সেটি পরিবর্তন করছি।"</span>
+          <cite>— Max, Founder · MaxMin Foundation</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PARTNER SCHOOLS ══════════════════════ -->
+<section id="partners" class="alt" aria-labelledby="partners-h">
+  <div class="wrap">
+    <div class="center-text" style="margin-bottom:36px;">
+      <span class="eyebrow">
+          <span data-lang="en" class="lang-visible">School partnerships</span>
+          <span data-lang="hi" class="hi">विद्यालय साझेदारी</span>
+          <span data-lang="bn" class="bn">বিদ্যালয় অংশীদারিত্ব</span>
+        </span>
+      <h2 id="partners-h" class="section-h reveal">
+        <span data-lang="en" class="lang-visible">Schools we work with</span>
+        <span data-lang="hi" class="hi">जिन विद्यालयों के साथ हम काम करते हैं</span>
+        <span data-lang="bn" class="bn">আমরা যে বিদ্যালয়গুলির সাথে কাজ করি</span>
+      </h2>
+      <span class="bn-sub bn reveal d1">
+        <span data-lang="en" class="lang-visible">আমাদের অংশীদার বিদ্যালয়</span>
+        <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">हमारे साझेदार विद्यालय</span>
+        <span data-lang="bn" class="bn">আমাদের অংশীদার বিদ্যালয়</span>
+      </span>
+      <p class="section-p reveal d2">
+        <span data-lang="en" class="lang-visible">We partner directly with government schools in Hooghly to bring courses to their students — on-site or at our Khanakul centre.</span>
+        <span data-lang="hi" class="hi">हम हुगली के सरकारी स्कूलों के साथ सीधे साझेदारी करते हैं — उनके परिसर में या हमारे खनाकुल केंद्र में।</span>
+        <span data-lang="bn" class="bn">আমরা হুগলির সরকারি বিদ্যালয়গুলির সাথে সরাসরি অংশীদারিত্ব করি — তাদের প্রাঙ্গণে বা আমাদের কানাকুল কেন্দ্রে।</span>
+      </p>
+    </div>
+    <div class="partner-grid reveal d2">
+      <div class="partner-card">
+        <div class="partner-logo-ph"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5V19a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg></div>
+        <div class="partner-name">Khanakul High School</div>
+        <div class="partner-loc">Khanakul, Hooghly</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-ph"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5V19a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg></div>
+        <div class="partner-name">Arambagh Vidyalaya</div>
+        <div class="partner-loc">Arambagh, Hooghly</div>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-ph"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5V19a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg></div>
+        <div class="partner-name">Goghat Govt. School</div>
+        <div class="partner-loc">Goghat, Hooghly</div>
+      </div>
+      <div class="partner-card" style="opacity:.5;">
+        <div class="partner-logo-ph"><svg viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5V19a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg></div>
+        <div class="partner-name">Partner School 4</div>
+        <div class="partner-loc">Hooghly District</div>
+      </div>
+      <div class="partner-more">
+        <svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:var(--slate);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M12 5v14M5 12h14"/></svg>
+        Yours could be here
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:20px;" class="reveal d3">
+      <a href="#cta" class="btn btn-ghost btn-sm">Partner with us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ASK YOUR MENTOR ══════════════════════ -->
+<section id="ask" aria-labelledby="ask-h">
+  <div class="wrap">
+    <div style="margin-bottom:40px;">
+      <span class="eyebrow">
+        <span data-lang="en" class="lang-visible">Ask your computer mentor</span>
+        <span data-lang="hi" class="hi">अपने कंप्यूटर मेंटर से पूछें</span>
+        <span data-lang="bn" class="bn">আপনার কম্পিউটার মেন্টরকে জিজ্ঞেস করুন</span>
+      </span>
+      <h2 id="ask-h" class="section-h reveal">
+        <span data-lang="en" class="lang-visible">Common questions, answered by Max</span>
+        <span data-lang="hi" class="hi">Max द्वारा उत्तरित सामान्य प्रश्न</span>
+        <span data-lang="bn" class="bn">Max-এর দেওয়া সাধারণ প্রশ্নের উত্তর</span>
+      </h2>
+      <span class="bn-sub bn reveal d1">
+        <span data-lang="en" class="lang-visible">মেন্টরকে জিজ্ঞেস করুন</span>
+        <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">मेंटर से पूछें</span>
+        <span data-lang="bn" class="bn">মেন্টরকে জিজ্ঞেস করুন</span>
+      </span>
+    </div>
+    <div class="ask-inner">
+      <div class="ask-questions">
+        <button class="ask-q reveal" data-q="ai">
+          <div class="aq-icon">AI</div>
+          <span data-lang="en" class="lang-visible">What is AI, really?</span>
+          <span data-lang="hi" class="hi">AI वास्तव में क्या है?</span>
+          <span data-lang="bn" class="bn">AI আসলে কী?</span>
+          <span class="aq-arrow">→</span>
+        </button>
+        <button class="ask-q reveal d1" data-q="how">
+          <div class="aq-icon">?</div>
+          <span data-lang="en" class="lang-visible">How do computers actually work?</span>
+          <span data-lang="hi" class="hi">कंप्यूटर वास्तव में कैसे काम करता है?</span>
+          <span data-lang="bn" class="bn">কম্পিউটার আসলে কীভাবে কাজ করে?</span>
+          <span class="aq-arrow">→</span>
+        </button>
+        <button class="ask-q reveal d2" data-q="first">
+          <div class="aq-icon">#1</div>
+          <span data-lang="en" class="lang-visible">Which skill should I learn first?</span>
+          <span data-lang="hi" class="hi">मुझे पहले कौन सा कौशल सीखना चाहिए?</span>
+          <span data-lang="bn" class="bn">আমার প্রথমে কোন দক্ষতা শেখা উচিত?</span>
+          <span class="aq-arrow">→</span>
+        </button>
+        <button class="ask-q reveal d3" data-q="career">
+          <div class="aq-icon">↑</div>
+          <span data-lang="en" class="lang-visible">Can technology help my career?</span>
+          <span data-lang="hi" class="hi">क्या तकनीक मेरे करियर में मदद कर सकती है?</span>
+          <span data-lang="bn" class="bn">প্রযুক্তি কি আমার ক্যারিয়ারে সাহায্য করতে পারে?</span>
+          <span class="aq-arrow">→</span>
+        </button>
+        <button class="ask-q reveal d4" data-q="scholar">
+          <div class="aq-icon">₹</div>
+          <span data-lang="en" class="lang-visible">How do scholarships work here?</span>
+          <span data-lang="hi" class="hi">यहाँ छात्रवृत्ति कैसे काम करती है?</span>
+          <span data-lang="bn" class="bn">এখানে বৃত্তি কীভাবে কাজ করে?</span>
+          <span class="aq-arrow">→</span>
+        </button>
+      </div>
+
+      <div class="ask-answer-box reveal d1" id="askBox">
+        <div class="aab-placeholder" id="askPlaceholder">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <p>
+            <span data-lang="en" class="lang-visible">Select a question on the left and Max will answer it for you.</span>
+            <span data-lang="hi" class="hi">बाईं ओर एक प्रश्न चुनें और Max आपको उत्तर देंगे।</span>
+            <span data-lang="bn" class="bn">বাম দিক থেকে একটি প্রশ্ন বেছে নিন এবং Max আপনাকে উত্তর দেবেন।</span>
+          </p>
+        </div>
+
+        <div class="aab-content" id="ans-ai">
+          <div class="aab-q">"What is AI, really?"</div>
+          <div class="aab-a">AI — artificial intelligence — is software that learns from examples rather than being told every rule. When your phone autocorrects spelling, that's AI. When YouTube recommends a video, that's AI. When Google Translate turns Bengali to English, that's AI. In our course, I show students how these systems actually make decisions — not the scary sci-fi version, the real, practical one. Understanding AI today is like understanding the internet in 2000: it's going to be everywhere, and you want to be on the right side of that.</div>
+          <div class="aab-footer">
+            <div class="aab-avatar">M</div>
+            <div><div class="aab-footer-name">Max</div><div class="aab-footer-role">Computer Mentor · Maxmin Foundation</div></div>
+          </div>
+        </div>
+
+        <div class="aab-content" id="ans-how">
+          <div class="aab-q">"How do computers actually work?"</div>
+          <div class="aab-a">A computer is just a machine that does one thing very fast: it processes instructions. Everything — a game, a spreadsheet, a message — is ultimately a set of instructions the computer follows step by step. In the Computer Basics course, I explain this using the parts students can see and touch: the screen, the keyboard, the storage. Once you understand what each part does, the whole thing stops being mysterious. It becomes logical — and logic is something anyone can learn.</div>
+          <div class="aab-footer">
+            <div class="aab-avatar">M</div>
+            <div><div class="aab-footer-name">Max</div><div class="aab-footer-role">Computer Mentor · Maxmin Foundation</div></div>
+          </div>
+        </div>
+
+        <div class="aab-content" id="ans-first">
+          <div class="aab-q">"Which skill should I learn first?"</div>
+          <div class="aab-a">If you've never used a computer before: start with Computer Basics. Full stop. Trying to learn Excel or AI without being comfortable with a keyboard and mouse is like trying to run before you can walk — it's frustrating and you'll feel like you're not smart enough. You are. You just haven't been given the right foundation yet. Once you're comfortable at a computer, everything else — Office tools, internet, even AI — starts making sense much faster. We'll figure out the right starting point together when you enroll.</div>
+          <div class="aab-footer">
+            <div class="aab-avatar">M</div>
+            <div><div class="aab-footer-name">Max</div><div class="aab-footer-role">Computer Mentor · Maxmin Foundation</div></div>
+          </div>
+        </div>
+
+        <div class="aab-content" id="ans-career">
+          <div class="aab-q">"Can technology help my career?"</div>
+          <div class="aab-a">Every single job that pays a living wage in the next 10 years will involve a computer at some level. This is not an exaggeration — it's already true in banking, teaching, healthcare, government offices, shops, and farms. A student who can type a professional email, manage a spreadsheet, and understand what an AI tool is doing has a significant advantage over one who cannot. These aren't "tech jobs" — they're every job. Our Career Readiness course is built exactly around this: not making you a programmer, but making sure technology works for your future, not against it.</div>
+          <div class="aab-footer">
+            <div class="aab-avatar">M</div>
+            <div><div class="aab-footer-name">Max</div><div class="aab-footer-role">Computer Mentor · Maxmin Foundation</div></div>
+          </div>
+        </div>
+
+        <div class="aab-content" id="ans-scholar">
+          <div class="aab-q">"How do scholarships work here?"</div>
+          <div class="aab-a">Simple: if you're enrolled in a government school and your family can't afford the course fee, you apply for a scholarship seat and we cover it. There's no entrance exam. There's no complicated form. You tell us your situation, we have a short conversation, and if you qualify — which most government school students do — you get the same seat, the same teacher, the same certificate as everyone else. The only difference is cost. We don't want cost to be the reason someone misses this. That's the whole point of the foundation.</div>
+          <div class="aab-footer">
+            <div class="aab-avatar">M</div>
+            <div><div class="aab-footer-name">Max</div><div class="aab-footer-role">Computer Mentor · Maxmin Foundation</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ════════════════════════════════════ -->
+<section id="faq" class="alt" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="center-text" style="margin-bottom:36px;">
+      <span class="eyebrow">FAQ</span>
+      <h2 id="faq-h" class="section-h reveal">
+        <span data-lang="en" class="lang-visible">Frequently asked questions</span>
+        <span data-lang="hi" class="hi">अक्सर पूछे जाने वाले सवाल</span>
+        <span data-lang="bn" class="bn">সাধারণ জিজ্ঞাসা</span>
+      </h2>
+      <span class="bn-sub bn reveal d1">
+        <span data-lang="en" class="lang-visible">সাধারণ জিজ্ঞাসা</span>
+        <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">सामान्य प्रश्न</span>
+        <span data-lang="bn" class="bn">সাধারণ জিজ্ঞাসা</span>
+      </span>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false"><span data-lang="en" class="lang-visible">Is it really free for government school students?</span>
+          <span data-lang="hi" class="hi">क्या यह सरकारी स्कूल के छात्रों के लिए सच में मुफ़्त है?</span>
+          <span data-lang="bn" class="bn">সরকারি বিদ্যালয়ের শিক্ষার্থীদের জন্য এটি কি সত্যিই বিনামূল্যে?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a" role="region"><div class="faq-a-inner">
+          <span data-lang="en" class="lang-visible">Yes, scholarship seats are completely free — no fees, no deposits, no hidden charges. Students who don't qualify for a scholarship can join on a low, transparent course fee that helps cover materials and centre running costs.</span>
+          <span data-lang="hi" class="hi">हाँ, छात्रवृत्ति सीटें पूरी तरह मुफ़्त हैं — कोई फीस नहीं, कोई जमा नहीं, कोई छिपा शुल्क नहीं। जो छात्र छात्रवृत्ति के लिए योग्य नहीं हैं, वे एक कम और पारदर्शी कोर्स फीस पर शामिल हो सकते हैं।</span>
+          <span data-lang="bn" class="bn">হ্যাঁ, বৃত্তির আসনগুলি সম্পূর্ণ বিনামূল্যে — কোনো ফি নেই, কোনো জমা নেই, কোনো লুকানো চার্জ নেই। যে শিক্ষার্থীরা বৃত্তির জন্য যোগ্য নন, তারা একটি কম ও স্বচ্ছ কোর্স ফিতে যোগ দিতে পারেন।</span>
+        </div></div>
+      </div>
+      <div class="faq-item reveal d1">
+        <button class="faq-q" aria-expanded="false"><span data-lang="en" class="lang-visible">Do I need my own computer or device?</span>
+          <span data-lang="hi" class="hi">क्या मुझे अपना कंप्यूटर या डिवाइस चाहिए?</span>
+          <span data-lang="bn" class="bn">আমার কি নিজের কম্পিউটার বা ডিভাইস দরকার?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a" role="region"><div class="faq-a-inner">
+          <span data-lang="en" class="lang-visible">No. Classes are held at our Khanakul learning centre where computers are available for every student during class time. You don't need to own any device to participate.</span>
+          <span data-lang="hi" class="hi">नहीं। कक्षाएँ हमारे खनाकुल शिक्षण केंद्र में होती हैं जहाँ कक्षा के समय हर छात्र के लिए कंप्यूटर उपलब्ध है। भाग लेने के लिए आपको कोई डिवाइस खरीदने की ज़रूरत नहीं है।</span>
+          <span data-lang="bn" class="bn">না। ক্লাসগুলি আমাদের কানাকুল শিক্ষাকেন্দ্রে অনুষ্ঠিত হয় যেখানে ক্লাসের সময় প্রতিটি শিক্ষার্থীর জন্য কম্পিউটার পাওয়া যায়। অংশ নিতে আপনার নিজের কোনো ডিভাইস কেনার দরকার নেই।</span>
+        </div></div>
+      </div>
+      <div class="faq-item reveal d2">
+        <button class="faq-q" aria-expanded="false"><span data-lang="en" class="lang-visible">What language are classes taught in?</span>
+          <span data-lang="hi" class="hi">कक्षाएँ किस भाषा में पढ़ाई जाती हैं?</span>
+          <span data-lang="bn" class="bn">ক্লাসগুলি কোন ভাষায় পড়ানো হয়?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a" role="region"><div class="faq-a-inner">
+          <span data-lang="en" class="lang-visible">Both English and Bengali. Max switches between the two depending on what helps each student understand best. No student is left behind because of language.</span>
+          <span data-lang="hi" class="hi">अंग्रेजी और बांग्ला दोनों। Max इस पर निर्भर करते हुए दोनों के बीच स्विच करते हैं कि किस भाषा में छात्र सबसे अच्छा समझता है। कोई भी छात्र भाषा की वजह से पीछे नहीं रहेगा।</span>
+          <span data-lang="bn" class="bn">ইংরেজি এবং বাংলা উভয়ই। Max প্রতিটি শিক্ষার্থীর বোঝার সুবিধা অনুযায়ী দুটির মধ্যে পরিবর্তন করেন। কোনো শিক্ষার্থী ভাষার কারণে পিছিয়ে থাকবে না।</span>
+        </div></div>
+      </div>
+      <div class="faq-item reveal d3">
+        <button class="faq-q" aria-expanded="false"><span data-lang="en" class="lang-visible">Will I receive a certificate?</span>
+          <span data-lang="hi" class="hi">क्या मुझे प्रमाण पत्र मिलेगा?</span>
+          <span data-lang="bn" class="bn">আমি কি সনদপত্র পাব?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a" role="region"><div class="faq-a-inner">
+          <span data-lang="en" class="lang-visible">Yes. Every student who completes a course receives a MaxMin Foundation completion certificate. Details about digital verification will be shared with enrolled students.</span>
+          <span data-lang="hi" class="hi">हाँ। प्रत्येक छात्र जो कोर्स पूरा करता है उसे MaxMin Foundation का समापन प्रमाण पत्र मिलता है। डिजिटल सत्यापन के बारे में विवरण नामांकित छात्रों के साथ साझा किया जाएगा।</span>
+          <span data-lang="bn" class="bn">হ্যাঁ। প্রতিটি শিক্ষার্থী যে কোর্স সম্পন্ন করে সে MaxMin Foundation-এর সমাপনী সনদ পায়। ডিজিটাল যাচাইকরণের বিবরণ নথিভুক্ত শিক্ষার্থীদের সাথে শেয়ার করা হবে।</span>
+        </div></div>
+      </div>
+      <div class="faq-item reveal d4">
+        <button class="faq-q" aria-expanded="false"><span data-lang="en" class="lang-visible">How do I enroll?</span>
+          <span data-lang="hi" class="hi">मैं कैसे नामांकन करूँ?</span>
+          <span data-lang="bn" class="bn">আমি কীভাবে ভর্তি হব?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+        <div class="faq-a" role="region"><div class="faq-a-inner">
+          <span data-lang="en" class="lang-visible">Call or WhatsApp Max on +91 82931 09514, or send an email to zenith@gmail.com. Visit the centre in Khanakul anytime Monday–Saturday, 10 AM–6 PM. We'll have a short chat about your level and goals and confirm your seat in the next available batch.</span>
+          <span data-lang="hi" class="hi">Max को +91 82931 09514 पर कॉल या WhatsApp करें, या zenith@gmail.com पर ईमेल भेजें। सोमवार–शनिवार, सुबह 10 बजे से शाम 6 बजे के बीच खनाकुल केंद्र आएँ। हम आपके स्तर और लक्ष्यों के बारे में बात करेंगे और अगले उपलब्ध बैच में आपकी सीट की पुष्टि करेंगे।</span>
+          <span data-lang="bn" class="bn">Max-কে +91 82931 09514 নম্বরে কল বা WhatsApp করুন, বা zenith@gmail.com-এ ইমেইল পাঠান। সোমবার–শনিবার, সকাল ১০টা থেকে বিকেল ৬টার মধ্যে কানাকুল কেন্দ্রে আসুন। আমরা আপনার স্তর ও লক্ষ্য নিয়ে আলোচনা করব এবং পরবর্তী উপলব্ধ ব্যাচে আপনার আসন নিশ্চিত করব।</span>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ENROLLMENT / FINAL CTA ═══════════════ -->
+<section id="enroll" aria-labelledby="enroll-h">
+  <div class="wrap" id="cta">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:48px;max-width:680px;margin:0 auto;" class="reveal">
+      <div style="text-align:center;margin-bottom:32px;">
+        <span class="eyebrow" style="text-align:center;display:block;">
+          <span data-lang="en" class="lang-visible">Enroll today</span>
+          <span data-lang="hi" class="hi">आज ही नामांकन करें</span>
+          <span data-lang="bn" class="bn">আজই ভর্তি হন</span>
+        </span>
+        <h2 id="enroll-h" class="section-h">
+          <span data-lang="en" class="lang-visible">Reserve your seat</span>
+          <span data-lang="hi" class="hi">अपनी सीट सुरक्षित करें</span>
+          <span data-lang="bn" class="bn">আপনার আসন নিশ্চিত করুন</span>
+        </h2>
+        <span class="bn-sub bn">
+          <span data-lang="en" class="lang-visible">আজই ভর্তি হন</span>
+          <span data-lang="hi" class="hi" style="font-family:'Noto Sans Devanagari',sans-serif;">आज ही नामांकन करें</span>
+          <span data-lang="bn" class="bn">আজই ভর্তি হন</span>
+        </span>
+        <p class="section-p" style="margin:12px auto 0;text-align:center;">
+          <span data-lang="en" class="lang-visible">Government school students can apply for a scholarship seat. All students are welcome — just get in touch.</span>
+          <span data-lang="hi" class="hi">सरकारी स्कूल के छात्र छात्रवृत्ति सीट के लिए आवेदन कर सकते हैं। सभी छात्रों का स्वागत है — बस संपर्क करें।</span>
+          <span data-lang="bn" class="bn">সরকারি বিদ্যালয়ের শিক্ষার্থীরা বৃত্তির আসনের জন্য আবেদন করতে পারেন। সকল শিক্ষার্থীকে স্বাগত — শুধু যোগাযোগ করুন।</span>
+        </p>
+      </div>
+      <form id="enrollForm" action="mailto:zenith@gmail.com" method="post" enctype="text/plain">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+          <div>
+            <label for="e-name" style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;"><span data-lang="en" class="lang-visible">Full name *</span><span data-lang="hi" class="hi">पूरा नाम *</span><span data-lang="bn" class="bn">পুরো নাম *</span></label>
+            <input type="text" id="e-name" name="name" required style="width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14.5px;background:var(--paper);color:var(--ink);">
+          </div>
+          <div>
+            <label for="e-phone" style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;"><span data-lang="en" class="lang-visible">Phone number *</span><span data-lang="hi" class="hi">फ़ोन नंबर *</span><span data-lang="bn" class="bn">ফোন নম্বর *</span></label>
+            <input type="tel" id="e-phone" name="phone" placeholder="+91 XXXXXXXXXX" required style="width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14.5px;background:var(--paper);color:var(--ink);">
+          </div>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label for="e-course" style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;"><span data-lang="en" class="lang-visible">Course interest *</span><span data-lang="hi" class="hi">कोर्स रुचि *</span><span data-lang="bn" class="bn">কোর্সের আগ্রহ *</span></label>
+          <select id="e-course" name="course" required style="width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14.5px;background:var(--paper);color:var(--ink);">
+            <option value="">Select a course</option>
+            <option>Computer Basics</option>
+            <option>Internet Skills</option>
+            <option>MS Office Essentials (2-Day)</option>
+            <option>Digital Safety</option>
+            <option>AI Fundamentals</option>
+            <option>Career Readiness</option>
+            <option>Not sure — help me choose</option>
+          </select>
+        </div>
+        <div style="margin-bottom:16px;">
+          <label for="e-scholar" style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;"><span data-lang="en" class="lang-visible">Scholarship seat needed?</span><span data-lang="hi" class="hi">क्या छात्रवृत्ति सीट चाहिए?</span><span data-lang="bn" class="bn">বৃত্তির আসন প্রয়োজন?</span></label>
+          <select id="e-scholar" name="scholarship" style="width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14.5px;background:var(--paper);color:var(--ink);">
+            <option>Yes — I'm a government school student and need a scholarship</option>
+            <option>No — I can pay the course fee</option>
+            <option>Not sure / need more information</option>
+          </select>
+        </div>
+        <div style="margin-bottom:20px;">
+          <label for="e-msg" style="display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;"><span data-lang="en" class="lang-visible">Message (optional)</span><span data-lang="hi" class="hi">संदेश (वैकल्पिक)</span><span data-lang="bn" class="bn">বার্তা (ঐচ্ছিক)</span></label>
+          <textarea id="e-msg" name="message" rows="3" placeholder="Tell us a little about yourself." style="width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:14.5px;background:var(--paper);color:var(--ink);resize:vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-amber btn-full" style="font-size:16px;padding:15px;">
+          <svg viewBox="0 0 24 24"><path d="M22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          <span data-lang="en" class="lang-visible">Send Enrollment Request</span><span data-lang="hi" class="hi">नामांकन अनुरोध भेजें</span><span data-lang="bn" class="bn">ভর্তির অনুরোধ পাঠান</span>
+        </button>
+        <p style="text-align:center;font-size:12.5px;color:var(--slate);margin-top:12px;">Opens your email app · We reply within 1–2 working days</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FINAL CTA BANNER ══════════════════════ -->
+<section id="cta" style="padding:72px 0;background:var(--navy);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 47px,rgba(255,255,255,0.022) 47px,rgba(255,255,255,0.022) 48px);pointer-events:none;"></div>
+  <div style="position:relative;z-index:1;text-align:center;max-width:620px;margin:0 auto;padding:0 24px;" class="reveal">
+    <span class="eyebrow light">Get started today</span>
+    <h2 style="font-family:'Lora',serif;font-size:clamp(26px,3.8vw,42px);color:#fff;font-weight:700;margin:8px 0 6px;">Join the Program</h2>
+    <span class="bn-sub bn" style="color:rgba(255,255,255,0.35);margin-bottom:0;display:block;">প্রোগ্রামে যোগ দিন</span>
+    <p style="color:rgba(255,255,255,0.72);font-size:16px;margin:16px 0 32px;">Whether you want to enroll, volunteer as a mentor, or partner your school with us — every path starts with a conversation.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="#enroll" class="btn btn-amber">
+        <svg viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M5 13.18v4.5a8.38 8.38 0 0 0 14 0v-4.5"/></svg>
+        Join the Program
+      </a>
+      <a href="mailto:zenith@gmail.com?subject=Volunteer inquiry&body=Hi Max, I'd like to volunteer as a mentor at Maxmin Foundation." class="btn btn-outline-white">Volunteer as Mentor</a>
+      <a href="mailto:zenith@gmail.com?subject=School partnership inquiry&body=Hi, I'm reaching out from a school and would like to discuss a partnership." class="btn btn-outline-white">Partner With Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <svg style="width:44px;height:34px;flex-shrink:0;" viewBox="0 0 110 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="15" r="8" fill="rgba(255,255,255,0.70)"/>
+          <circle cx="90" cy="11" r="8" fill="#E8970A"/>
+          <path d="M20 40 L38 20 L55 36 L72 14 L90 32" stroke="#1A8A6D" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <polyline points="82,22 90,32 98,22" stroke="#1A8A6D" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <rect x="12" y="56" width="86" height="5" rx="2.5" fill="rgba(255,255,255,0.15)"/>
+        </svg>
+        <div>
+          <div style="font-family:'Lora',serif;font-weight:700;font-size:16px;color:#fff;">Max<span style="color:#E8970A;">Min</span> Foundation</div>
+          <div style="font-family:'DM Sans',sans-serif;font-size:9.5px;font-weight:600;color:#1A8A6D;letter-spacing:0.08em;text-transform:uppercase;">Learn · Grow · Succeed</div>
+        </div>
+      </div>
+      <p>
+        <span data-lang="en" class="lang-visible">Free and scholarship-based computer education for government school students in Khanakul, Hooghly, West Bengal. Founded by Max &amp; Min.</span>
+        <span data-lang="hi" class="hi">खनाकुल, हुगली, पश्चिम बंगाल में सरकारी स्कूल के छात्रों के लिए मुफ़्त और छात्रवृत्ति-आधारित कंप्यूटर शिक्षा। Max &amp; Min द्वारा स्थापित।</span>
+        <span data-lang="bn" class="bn">কানাকুল, হুগলি, পশ্চিমবঙ্গে সরকারি বিদ্যালয়ের শিক্ষার্থীদের জন্য বিনামূল্যে ও বৃত্তিভিত্তিক কম্পিউটার শিক্ষা। Max ও Min কর্তৃক প্রতিষ্ঠিত।</span>
+      </p>
+    </div>
+    <div>
+      <div class="fh">
+        <span data-lang="en" class="lang-visible">Quick links</span>
+        <span data-lang="hi" class="hi">त्वरित लिंक</span>
+        <span data-lang="bn" class="bn">দ্রুত লিঙ্ক</span>
+      </div>
+      <ul>
+        <li><a href="#mentor">Meet the Mentor</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#roadmap">Learning Roadmap</a></li>
+        <li><a href="#mission">Our Mission</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#enroll">Enroll</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fh">
+        <span data-lang="en" class="lang-visible">Courses</span>
+        <span data-lang="hi" class="hi">कोर्स</span>
+        <span data-lang="bn" class="bn">কোর্স</span>
+      </div>
+      <ul>
+        <li><a href="#courses">Computer Basics</a></li>
+        <li><a href="#courses">Internet Skills</a></li>
+        <li><a href="#courses">MS Office (2-Day)</a></li>
+        <li><a href="#courses">Digital Safety</a></li>
+        <li><a href="#courses">AI Fundamentals</a></li>
+        <li><a href="#courses">Career Readiness</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="fh">
+        <span data-lang="en" class="lang-visible">Contact</span>
+        <span data-lang="hi" class="hi">संपर्क</span>
+        <span data-lang="bn" class="bn">যোগাযোগ</span>
+      </div>
+      <div class="f-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Khanakul, Hooghly, West Bengal, India
+      </div>
+      <div class="f-contact-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.18 4.18 2 2 0 0 1 4.16 2h3a2 2 0 0 1 2 1.72c.13 1 .36 1.94.69 2.85a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.23-1.31a2 2 0 0 1 2.11-.45c.91.33 1.86.56 2.85.69A2 2 0 0 1 22 16.92Z"/></svg>
+        <a href="tel:+918293109514">+91 82931 09514</a>
+      </div>
+      <div class="f-contact-item">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+        <a href="mailto:zenith@gmail.com">zenith@gmail.com</a>
+      </div>
+      <div class="f-contact-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Mon–Sat · 10 AM–6 PM
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>
+        <span data-lang="en" class="lang-visible">&copy; 2026 MaxMin Foundation · Khanakul, Hooghly</span>
+        <span data-lang="hi" class="hi">&copy; 2026 MaxMin Foundation · खनाकुल, हुगली</span>
+        <span data-lang="bn" class="bn">&copy; 2026 MaxMin Foundation · কানাকুল, হুগলি</span>
+      </span>
+    <button class="btt" id="btt" aria-label="Back to top">
+      <svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+    </button>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<!-- ═══════════════════════════════════════════
+   JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+/* Progress bar */
+window.addEventListener('scroll', () => {
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  document.getElementById('progress').style.width = (total > 0 ? window.scrollY / total * 100 : 0) + '%';
+  document.getElementById('hdr').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* Nav active link */
+const sections = ['hero','trust','mentor','impact','courses','roadmap','stories','gallery','mission','partners','ask','faq','enroll'];
+const links = document.querySelectorAll('.nav-links a, .mobile-nav a');
+const activateLink = () => {
+  let cur = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 120) cur = id;
+  });
+  links.forEach(a => {
+    const href = a.getAttribute('href');
+    a.classList.toggle('active', href === '#' + cur);
+  });
+};
+window.addEventListener('scroll', activateLink, { passive: true });
+
+/* Mobile nav */
+const ham = document.getElementById('ham');
+const mob = document.getElementById('mob');
+ham.addEventListener('click', () => {
+  const open = mob.classList.toggle('open');
+  ham.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+});
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mob.classList.remove('open'); ham.classList.remove('open'); ham.setAttribute('aria-expanded', false);
+}));
+
+/* Smooth scroll with header offset */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id.length < 2) return;
+    const el = document.querySelector(id);
+    if (!el) return;
+    e.preventDefault();
+    const offset = document.getElementById('hdr').offsetHeight + 12;
+    window.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth' });
+  });
+});
+
+/* Scroll reveal */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('up'); io.unobserve(e.target); } });
+}, { threshold: 0.10, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* FAQ accordion */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o => {
+      o.classList.remove('open'); o.querySelector('.faq-q').setAttribute('aria-expanded', false);
+    });
+    item.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', !isOpen);
+  });
+});
+
+/* Ask mentor */
+const askBtns = document.querySelectorAll('.ask-q');
+const placeholder = document.getElementById('askPlaceholder');
+askBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const key = btn.dataset.q;
+    placeholder.style.display = 'none';
+    document.querySelectorAll('.aab-content').forEach(c => c.classList.remove('active'));
+    const ans = document.getElementById('ans-' + key);
+    if (ans) ans.classList.add('active');
+    askBtns.forEach(b => b.style.background = '');
+    btn.style.background = 'var(--amber-bg)';
+    btn.style.borderColor = 'var(--amber)';
+  });
+});
+
+/* Animated counters */
+const countObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.querySelectorAll('[data-target]').forEach(el => {
+      const target = +el.dataset.target;
+      let cur = 0;
+      const step = Math.ceil(target / 40);
+      const timer = setInterval(() => {
+        cur = Math.min(cur + step, target);
+        el.textContent = cur + (target >= 100 ? '+' : target > 5 ? '+' : '');
+        if (cur >= target) clearInterval(timer);
+      }, 40);
+    });
+    countObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.4 });
+const impactSection = document.getElementById('impact');
+if (impactSection) countObserver.observe(impactSection);
+
+/* Toast */
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+document.getElementById('enrollForm').addEventListener('submit', () => toast('Opening email — we\'ll reply within 1–2 days.'));
+
+/* ═══════════════════════════════════════════
+   LANGUAGE SWITCHER
+═══════════════════════════════════════════ */
+const LANGS = ['en','hi','bn'];
+let currentLang = 'en';
+
+function applyLang(lang) {
+  currentLang = lang;
+  LANGS.forEach(l => {
+    document.querySelectorAll(`[data-lang="${l}"]`).forEach(el => {
+      el.classList.toggle('lang-visible', l === lang);
+    });
+  });
+  document.querySelectorAll('[data-lang-select]').forEach(btn => {
+    const isActive = btn.dataset.langSelect === lang;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', isActive);
+  });
+  document.documentElement.lang = lang === 'bn' ? 'bn' : lang === 'hi' ? 'hi' : 'en';
+  try { localStorage.setItem('mmf-lang', lang); } catch(e) {}
+}
+
+document.querySelectorAll('[data-lang-select]').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.langSelect));
+});
+
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem('mmf-lang') || 'en'; } catch(e) {}
+  if (!LANGS.includes(saved)) saved = 'en';
+  applyLang(saved);
+})();
+
+/* Back to top */
+document.getElementById('btt').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>
